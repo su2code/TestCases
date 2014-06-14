@@ -62,6 +62,7 @@ class TestCase:
         command = "%s %s > %s" % (self.su2_exec, self.cfg_file,logfilename)
 
         # Run SU2
+        workdir = os.getcwd()
         os.chdir(self.cfg_dir)
         print os.getcwd()
         start   = datetime.datetime.now()
@@ -164,7 +165,7 @@ class TestCase:
             print '%f '%j,
         print '\n'
 
-        os.chdir('../../../')
+        os.chdir(workdir)
         return passed
 
     def adjust_iter(self):
