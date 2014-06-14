@@ -1,4 +1,4 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
 ## \file serial_regression.py
 #  \brief Python script for automated regression testing of SU2 examples
