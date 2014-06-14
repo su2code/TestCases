@@ -51,6 +51,7 @@ def main():
 
     os.chdir(workdir)  
 
+
     test_list = []
 
     ##########################
@@ -126,7 +127,7 @@ def main():
     cylinder.su2_exec  = "SU2_CFD"
     cylinder.timeout   = 1600
     cylinder.tol       = 0.00001
-    test_list.append(cylinder)
+    #test_list.append(cylinder)
 
     ##########################
     ### Compressible RANS  ###
@@ -327,5 +328,5 @@ def main():
         sys.exit(1)
     # done
 
-if __name__=="__main__":
+if __name__ == '__main__':
     main()
