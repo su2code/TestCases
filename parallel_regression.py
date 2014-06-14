@@ -33,6 +33,7 @@ def main():
   # environment variables for SU2
   os.environ['SU2_HOME'] = '/home/ale11/.cruise/projects/parallel_regression/work/SU2'
   os.environ['SU2_RUN'] = '/home/ale11/.cruise/projects/parallel_regression/work/SU2/bin'
+  os.environ['PATH'] = os.environ['PATH'] + ':' + os.environ['SU2_RUN']
   
   # sync SU2 repo
   os.chdir( os.environ['SU2_HOME'] )
