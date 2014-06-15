@@ -74,7 +74,7 @@ def main():
     naca0012.cfg_dir   = "euler/naca0012"
     naca0012.cfg_file  = "inv_NACA0012_Roe.cfg"
     naca0012.test_iter = 100
-    naca0012.test_vals = [-3.751809,-3.271265,0.136604,0.066791]
+    naca0012.test_vals = [-6.195996,-5.597033,0.334818,0.022197]
     naca0012.su2_exec  = "SU2_CFD"
     naca0012.timeout   = 1600
     naca0012.tol       = 0.00001
@@ -186,7 +186,7 @@ def main():
     inc_turb_naca0012.cfg_dir   = "incomp_rans/naca0012"
     inc_turb_naca0012.cfg_file  = "naca0012.cfg"
     inc_turb_naca0012.test_iter = 20
-    inc_turb_naca0012.test_vals = [-4.714938,-10.911748,-0.000001,0.255901] #last 4 columns
+    inc_turb_naca0012.test_vals = [-4.709981,-11.007623,0.000008,0.210345] #last 4 columns
     inc_turb_naca0012.su2_exec  = "SU2_CFD"
     inc_turb_naca0012.timeout   = 1600
     inc_turb_naca0012.tol       = 0.00001
