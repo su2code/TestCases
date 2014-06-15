@@ -315,6 +315,46 @@ def main():
     spectral.tol       = 0.00001
     test_list.append(spectral)
 
+    ######################################
+    ### Moving Wall                    ###
+    ######################################
+    
+    # Lid-driven cavity
+    cavity           = TestCase('cavity')
+    cavity.cfg_dir   = "moving_wall/cavity"
+    cavity.cfg_file  = "lam_cavity.cfg"
+    cavity.test_iter = 25
+    cavity.test_vals = [-5.957018,-0.518901,0.017833,-3.937129]
+    cavity.su2_exec  = "SU2_CFD"
+    cavity.timeout   = 1600
+    cavity.tol       = 0.00001
+    test_list.append(cavity)
+
+    # Spinning cylinder
+    spinning_cylinder           = TestCase('spinning_cylinder')
+    spinning_cylinder.cfg_dir   = "moving_wall/spinning_cylinder"
+    spinning_cylinder.cfg_file  = "spinning_cylinder.cfg"
+    spinning_cylinder.test_iter = 25
+    spinning_cylinder.test_vals = [-6.754859,-1.333184,8.912235,0.163860]
+    spinning_cylinder.su2_exec  = "SU2_CFD"
+    spinning_cylinder.timeout   = 1600
+    spinning_cylinder.tol       = 0.00001
+    test_list.append(spinning_cylinder)
+
+    ######################################
+    ### Unsteady                       ###
+    ######################################
+
+    # Square cylinder
+    square_cylinder           = TestCase('square_cylinder')
+    square_cylinder.cfg_dir   = "unsteady/square_cylinder"
+    square_cylinder.cfg_file  = "turb_square.cfg"
+    square_cylinder.test_iter = 3
+    square_cylinder.test_vals = [-5.957018,-0.518901,0.017833,-3.937129]
+    square_cylinder.su2_exec  = "SU2_CFD"
+    square_cylinder.timeout   = 1600
+    square_cylinder.tol       = 0.00001
+    test_list.append(square_cylinder)
 
     ######################################
     ### RUN TESTS                      ###
