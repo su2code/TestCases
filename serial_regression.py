@@ -350,7 +350,7 @@ def main():
     square_cylinder.cfg_dir   = "unsteady/square_cylinder"
     square_cylinder.cfg_file  = "turb_square.cfg"
     square_cylinder.test_iter = 3
-    square_cylinder.test_vals = [-5.957018,-0.518901,0.017833,-3.937129]
+    square_cylinder.test_vals = [-1.585044,-1.425752,1.490389,2.340439]
     square_cylinder.su2_exec  = "SU2_CFD"
     square_cylinder.timeout   = 1600
     square_cylinder.tol       = 0.00001
