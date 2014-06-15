@@ -42,7 +42,7 @@ def main():
     # Build SU2_CFD in serial using autoconf
     os.system('./configure --prefix=$SU2_HOME CXXFLAGS="-O3"')
     os.system('make clean')
-    os.system('make -j 24 install')
+    os.system('make install')
 
     os.chdir(os.environ['SU2_RUN'])
     if not os.path.exists("./SU2_CFD"):
