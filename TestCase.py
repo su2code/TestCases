@@ -97,7 +97,7 @@ class TestCase:
                     raw_data = line.split()
                     try:
                         iter_number = int(raw_data[0])
-                        data        = raw_data[2:]    # Take the last 4 columns for comparison
+                        data        = raw_data[len(raw_data)-4:]    # Take the last 4 columns for comparison
                     except ValueError:
                         continue
                     except IndexError:
