@@ -40,17 +40,17 @@ def main():
     os.system('git pull')  
 
     # Build SU2_CFD in parallel using autoconf
-    os.system('./configure --prefix=$SU2_HOME --with-MPI=mpicxx --with-Metis-lib=/home/ale11/tools/metis-5.0.1/lib --with-Metis-include=/home/ale11/tools/metis-5.0.1/include --with-Metis-version=5 CXXFLAGS="-O3"')
+    os.system('./configure --prefix=$SU2_HOME --with-MPI=mpicxx CXXFLAGS="-O3"')
     os.system('make clean')
-    os.system('make install')
+    os.system('make -j 24 install')
 
     os.chdir(os.environ['SU2_RUN'])
     if not os.path.exists("./SU2_CFD"):
         print 'Could not build SU2_CFD'
         sys.exit(1)
 
-    if not os.path.exists("./SU2_DDC"):
-        print 'Could not build SU2_DDC'
+    if not os.path.exists("./SU2_PRT"):
+        print 'Could not build SU2_PRT'
         sys.exit(1)
 
     os.chdir(workdir)  
@@ -111,7 +111,7 @@ def main():
     # Laminar flat plate
     flatplate           = TestCase('flatplate')
     flatplate.cfg_dir   = "navierstokes/flatplate"
-    flatplate.cfg_file  = "lam_flatplate_Roe.cfg"
+    flatplate.cfg_file  = "lam_flatplate.cfg"
     flatplate.test_iter = 100
     flatplate.test_vals = [-5.142353,0.347570,0.029870,0.015971]
     flatplate.su2_exec  = "parallel_computation.py -f"
@@ -123,7 +123,7 @@ def main():
     # Laminar cylinder (steady)
     cylinder           = TestCase('cylinder')
     cylinder.cfg_dir   = "navierstokes/cylinder"
-    cylinder.cfg_file  = "lam_cylinder_JST.cfg"
+    cylinder.cfg_file  = "lam_cylinder.cfg"
     cylinder.test_iter = 25
     cylinder.test_vals = [-9.727830,-9.107325,-0.047634,3.804844]
     cylinder.su2_exec  = "parallel_computation.py -f"
@@ -149,7 +149,7 @@ def main():
     # Flat plate
     turb_flatplate           = TestCase('turb_flatplate')
     turb_flatplate.cfg_dir   = "rans/flatplate"
-    turb_flatplate.cfg_file  = "turb_SA_flatplate_Roe.cfg"
+    turb_flatplate.cfg_file  = "turb_SA_flatplate.cfg"
     turb_flatplate.test_iter = 100
     turb_flatplate.test_vals = [-5.086782,-7.250991,-0.000015,0.014381] #last 4 columns
     turb_flatplate.su2_exec  = "parallel_computation.py -f"
@@ -171,7 +171,7 @@ def main():
     # NACA0012
     turb_naca0012           = TestCase('turb_naca0012')
     turb_naca0012.cfg_dir   = "rans/naca0012"
-    turb_naca0012.cfg_file  = "naca0012.cfg"
+    turb_naca0012.cfg_file  = "turb_NACA0012.cfg"
     turb_naca0012.test_iter = 20
     turb_naca0012.test_vals = [-7.508443,-9.210101,-0.000034,0.007944] #last 4 columns
     turb_naca0012.su2_exec  = "parallel_computation.py -f"
@@ -244,7 +244,7 @@ def main():
     contadj_ns_naca0012.su2_exec  = "parallel_computation.py -f"
     contadj_ns_naca0012.timeout   = 1600
     contadj_ns_naca0012.tol       = 0.00001
-    #test_list.append(contadj_ns_naca0012)
+    test_list.append(contadj_ns_naca0012)
 
     #######################################################
     ### Cont. adj. compressible RANS (frozen viscosity) ###

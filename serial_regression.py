@@ -42,7 +42,7 @@ def main():
     # Build SU2_CFD in serial using autoconf
     os.system('./configure --prefix=$SU2_HOME CXXFLAGS="-O3"')
     os.system('make clean')
-    os.system('make install')
+    os.system('make -j 24 install')
 
     os.chdir(os.environ['SU2_RUN'])
     if not os.path.exists("./SU2_CFD"):
@@ -109,9 +109,9 @@ def main():
     # Laminar flat plate
     flatplate           = TestCase('flatplate')
     flatplate.cfg_dir   = "navierstokes/flatplate"
-    flatplate.cfg_file  = "lam_flatplate_Roe.cfg"
+    flatplate.cfg_file  = "lam_flatplate.cfg"
     flatplate.test_iter = 100
-    flatplate.test_vals = [-5.138004,0.351641,0.029712,0.015959]
+    flatplate.test_vals = [-5.225114,0.270273,0.020536,0.012860]
     flatplate.su2_exec  = "SU2_CFD"
     flatplate.timeout   = 1600
     flatplate.tol       = 0.00001
@@ -121,13 +121,13 @@ def main():
     # Laminar cylinder (steady)
     cylinder           = TestCase('cylinder')
     cylinder.cfg_dir   = "navierstokes/cylinder"
-    cylinder.cfg_file  = "lam_cylinder_JST.cfg"
+    cylinder.cfg_file  = "lam_cylinder.cfg"
     cylinder.test_iter = 25
-    cylinder.test_vals = [-9.760817,-8.884991,-0.043063,3.661523]
+    cylinder.test_vals = [-6.781338,-1.335300,-0.025054,0.974312]
     cylinder.su2_exec  = "SU2_CFD"
     cylinder.timeout   = 1600
     cylinder.tol       = 0.00001
-    #test_list.append(cylinder)
+    test_list.append(cylinder)
 
     ##########################
     ### Compressible RANS  ###
@@ -147,9 +147,9 @@ def main():
     # Flat plate
     turb_flatplate           = TestCase('turb_flatplate')
     turb_flatplate.cfg_dir   = "rans/flatplate"
-    turb_flatplate.cfg_file  = "turb_SA_flatplate_Roe.cfg"
+    turb_flatplate.cfg_file  = "turb_SA_flatplate.cfg"
     turb_flatplate.test_iter = 100
-    turb_flatplate.test_vals = [-5.056418,-7.226171,-0.000006,0.013812] #last 4 columns
+    turb_flatplate.test_vals = [-5.074224,-7.332708,0.000505,0.010354] #last 4 columns
     turb_flatplate.su2_exec  = "SU2_CFD"
     turb_flatplate.timeout   = 1600
     turb_flatplate.tol       = 0.00001
@@ -160,7 +160,7 @@ def main():
     turb_oneram6.cfg_dir   = "rans/oneram6"
     turb_oneram6.cfg_file  = "turb_ONERAM6.cfg"
     turb_oneram6.test_iter = 10
-    turb_oneram6.test_vals = [-4.872687,-11.524700,0.238115,0.155977]#last 4 columns
+    turb_oneram6.test_vals = [-2.343659,-6.584583,0.230390,0.155769]#last 4 columns
     turb_oneram6.su2_exec  = "SU2_CFD"
     turb_oneram6.timeout   = 3200
     turb_oneram6.tol       = 0.00001
@@ -169,9 +169,9 @@ def main():
     # NACA0012
     turb_naca0012           = TestCase('turb_naca0012')
     turb_naca0012.cfg_dir   = "rans/naca0012"
-    turb_naca0012.cfg_file  = "naca0012.cfg"
+    turb_naca0012.cfg_file  = "turb_NACA0012.cfg"
     turb_naca0012.test_iter = 20
-    turb_naca0012.test_vals = [-7.508443,-9.210101,-0.000034,0.007944] #last 4 columns
+    turb_naca0012.test_vals = [-2.824671,-7.364141,-0.000026,0.803047] #last 4 columns
     turb_naca0012.su2_exec  = "SU2_CFD"
     turb_naca0012.timeout   = 3200
     turb_naca0012.tol       = 0.00001
@@ -186,7 +186,7 @@ def main():
     inc_turb_naca0012.cfg_dir   = "incomp_rans/naca0012"
     inc_turb_naca0012.cfg_file  = "naca0012.cfg"
     inc_turb_naca0012.test_iter = 20
-    inc_turb_naca0012.test_vals = [-9.066924,-8.386769,-0.000003,0.008181] #last 4 columns
+    inc_turb_naca0012.test_vals = [-4.714938,-10.911748,-0.000001,0.255901] #last 4 columns
     inc_turb_naca0012.su2_exec  = "SU2_CFD"
     inc_turb_naca0012.timeout   = 1600
     inc_turb_naca0012.tol       = 0.00001
@@ -233,16 +233,16 @@ def main():
     contadj_ns_cylinder.tol       = 0.00001
     test_list.append(contadj_ns_cylinder)
 
-    # Adjoint laminar naca0012 (To be fixed)
+    # Adjoint laminar naca0012
     contadj_ns_naca0012           = TestCase('contadj_ns_naca0012')
     contadj_ns_naca0012.cfg_dir   = "cont_adj_navierstokes/naca0012"
     contadj_ns_naca0012.cfg_file  = "lam_NACA0012.cfg"
     contadj_ns_naca0012.test_iter = 100
-    contadj_ns_naca0012.test_vals = [1.525818,-3.812185,1.0572e+00,1.9355e-01] #last 4 columns
+    contadj_ns_naca0012.test_vals = [-0.012901,-5.322715,0.896630,-0.045627] #last 4 columns
     contadj_ns_naca0012.su2_exec  = "SU2_CFD"
     contadj_ns_naca0012.timeout   = 1600
     contadj_ns_naca0012.tol       = 0.00001
-    #test_list.append(contadj_ns_naca0012)
+    test_list.append(contadj_ns_naca0012)
 
     #######################################################
     ### Cont. adj. compressible RANS (frozen viscosity) ###
