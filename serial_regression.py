@@ -207,16 +207,16 @@ def main():
     contadj_naca0012.tol       = 0.00001
     test_list.append(contadj_naca0012)
 
-    # Inviscid RAM-C (To be validated with finite differences)
-    contadj_ram_c           = TestCase('contadj_ram_c')
-    contadj_ram_c.cfg_dir   = "cont_adj_euler/ram_c"
-    contadj_ram_c.cfg_file  = "inv_RAMC.cfg"
-    contadj_ram_c.test_iter = 100
-    contadj_ram_c.test_vals = [0.776609,-7.308868,-0.001885,0.080464] #last 4 columns
-    contadj_ram_c.su2_exec  = "SU2_CFD"
-    contadj_ram_c.timeout   = 1600
-    contadj_ram_c.tol       = 0.00001
-    test_list.append(contadj_ram_c)
+    # Inviscid ONERA M6
+    contadj_oneram6           = TestCase('contadj_oneram6')
+    contadj_oneram6.cfg_dir   = "cont_adj_euler/oneram6"
+    contadj_oneram6.cfg_file  = "inv_ONERAM6.cfg"
+    contadj_oneram6.test_iter = 5
+    contadj_oneram6.test_vals = [0.776609,-7.308868,-0.001885,0.080464] #last 4 columns
+    contadj_oneram6.su2_exec  = "SU2_CFD"
+    contadj_oneram6.timeout   = 1600
+    contadj_oneram6.tol       = 0.00001
+    test_list.append(contadj_oneram6)
 
     ###################################
     ### Cont. adj. compressible N-S ###
