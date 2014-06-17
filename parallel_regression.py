@@ -315,8 +315,8 @@ def main():
     cavity.cfg_dir   = "moving_wall/cavity"
     cavity.cfg_file  = "lam_cavity.cfg"
     cavity.test_iter = 25
-    cavity.test_vals = [-5.957018,-0.518901,0.017833,-3.937129]
-    cavity.su2_exec  = "SU2_CFD"
+    cavity.test_vals = [-5.756437,-0.316355,-0.152010,-3.755979]
+    cavity.su2_exec  = "parallel_computation.py -f"
     cavity.timeout   = 1600
     cavity.tol       = 0.00001
     test_list.append(cavity)
@@ -326,8 +326,8 @@ def main():
     spinning_cylinder.cfg_dir   = "moving_wall/spinning_cylinder"
     spinning_cylinder.cfg_file  = "spinning_cylinder.cfg"
     spinning_cylinder.test_iter = 25
-    spinning_cylinder.test_vals = [-6.754859,-1.333184,8.912235,0.163860]
-    spinning_cylinder.su2_exec  = "SU2_CFD"
+    spinning_cylinder.test_vals = [-6.629674,-1.200221,8.693302,0.326125]
+    spinning_cylinder.su2_exec  = "parallel_computation.py -f"
     spinning_cylinder.timeout   = 1600
     spinning_cylinder.tol       = 0.00001
     test_list.append(spinning_cylinder)
@@ -341,8 +341,8 @@ def main():
     square_cylinder.cfg_dir   = "unsteady/square_cylinder"
     square_cylinder.cfg_file  = "turb_square.cfg"
     square_cylinder.test_iter = 3
-    square_cylinder.test_vals = [-1.585044,-1.425752,1.490389,2.340439]
-    square_cylinder.su2_exec  = "SU2_CFD"
+    square_cylinder.test_vals = [-1.585044,-1.425751,1.490389,2.340439]
+    square_cylinder.su2_exec  = "parallel_computation.py -f"
     square_cylinder.timeout   = 1600
     square_cylinder.tol       = 0.00001
     test_list.append(square_cylinder)
