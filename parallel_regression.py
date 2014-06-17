@@ -202,7 +202,7 @@ def main():
     contadj_naca0012           = TestCase('contadj_naca0012')
     contadj_naca0012.cfg_dir   = "cont_adj_euler/naca0012"
     contadj_naca0012.cfg_file  = "inv_NACA0012.cfg"
-    contadj_naca0012.test_iter = 100
+    contadj_naca0012.test_iter = 5
     contadj_naca0012.test_vals = [-4.953138,-10.312798,0.006116,0.527890] #last 4 columns
     contadj_naca0012.su2_exec  = "parallel_computation.py -f"
     contadj_naca0012.timeout   = 1600
