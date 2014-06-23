@@ -98,7 +98,7 @@ def main():
     oneram6.cfg_dir   = "euler/oneram6"
     oneram6.cfg_file  = "inv_ONERAM6_JST.cfg"
     oneram6.test_iter = 10
-    oneram6.test_vals = [-4.825465,-4.290835,0.287910,0.015977]
+    oneram6.test_vals = [-4.819412,-4.286432,0.288842,0.016334]
     oneram6.su2_exec  = "parallel_computation.py -f"
     oneram6.timeout   = 3200
     oneram6.tol       = 0.00001
@@ -198,7 +198,7 @@ def main():
     ### Cont. adj. compressible Euler ###
     #####################################
 
-    # Inviscid NACA0012 (To be validated with finite differences)
+    # Inviscid NACA0012
     contadj_naca0012           = TestCase('contadj_naca0012')
     contadj_naca0012.cfg_dir   = "cont_adj_euler/naca0012"
     contadj_naca0012.cfg_file  = "inv_NACA0012.cfg"
@@ -214,7 +214,7 @@ def main():
     contadj_oneram6.cfg_dir   = "cont_adj_euler/oneram6"
     contadj_oneram6.cfg_file  = "inv_ONERAM6.cfg"
     contadj_oneram6.test_iter = 5
-    contadj_oneram6.test_vals = [-6.385873,-6.531040,-0.000023,0.147770] #last 4 columns
+    contadj_oneram6.test_vals = [-6.380658,-6.526358,-0.000022,0.147770] #last 4 columns
     contadj_oneram6.su2_exec  = "parallel_computation.py -f"
     contadj_oneram6.timeout   = 1600
     contadj_oneram6.tol       = 0.00001
