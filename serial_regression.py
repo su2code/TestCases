@@ -63,7 +63,7 @@ def main():
     channel.cfg_dir   = "euler/channel"
     channel.cfg_file  = "inv_channel_RK.cfg"
     channel.test_iter = 100
-    channel.test_vals = [-2.489827,2.821844,0.008730,0.053947]
+    channel.test_vals = [-2.489214,2.821231,0.008730,0.053947]
     channel.su2_exec  = "SU2_CFD"
     channel.timeout   = 1600
     channel.tol       = 0.00001
@@ -74,7 +74,7 @@ def main():
     naca0012.cfg_dir   = "euler/naca0012"
     naca0012.cfg_file  = "inv_NACA0012_Roe.cfg"
     naca0012.test_iter = 100
-    naca0012.test_vals = [-6.195996,-5.597033,0.334818,0.022197]
+    naca0012.test_vals = [-6.203359,-5.582393,0.334818,0.022197]
     naca0012.su2_exec  = "SU2_CFD"
     naca0012.timeout   = 1600
     naca0012.tol       = 0.00001
@@ -85,7 +85,7 @@ def main():
     wedge.cfg_dir   = "euler/wedge"
     wedge.cfg_file  = "inv_wedge_HLLC.cfg"
     wedge.test_iter = 100
-    wedge.test_vals = [-2.717009,3.183742,-0.252144,0.044399]
+    wedge.test_vals = [-2.703316,3.192215,-0.252410,0.044446]
     wedge.su2_exec  = "SU2_CFD"
     wedge.timeout   = 1600
     wedge.tol       = 0.00001
@@ -96,7 +96,7 @@ def main():
     oneram6.cfg_dir   = "euler/oneram6"
     oneram6.cfg_file  = "inv_ONERAM6_JST.cfg"
     oneram6.test_iter = 10
-    oneram6.test_vals = [-4.819422,-4.284121,0.290066,0.015809]
+    oneram6.test_vals = [-4.830417,-4.273125,0.290066,0.015809]
     oneram6.su2_exec  = "SU2_CFD"
     oneram6.timeout   = 9600
     oneram6.tol       = 0.00001
@@ -111,7 +111,7 @@ def main():
     flatplate.cfg_dir   = "navierstokes/flatplate"
     flatplate.cfg_file  = "lam_flatplate.cfg"
     flatplate.test_iter = 100
-    flatplate.test_vals = [-5.225114,0.270273,0.020536,0.012860]
+    flatplate.test_vals = [-5.225477,0.268923,-0.029939,0.012859]
     flatplate.su2_exec  = "SU2_CFD"
     flatplate.timeout   = 1600
     flatplate.tol       = 0.00001
@@ -123,7 +123,7 @@ def main():
     cylinder.cfg_dir   = "navierstokes/cylinder"
     cylinder.cfg_file  = "lam_cylinder.cfg"
     cylinder.test_iter = 25
-    cylinder.test_vals = [-6.781338,-1.335300,-0.025054,0.974312]
+    cylinder.test_vals = [-6.763199,-1.295173,-0.024986,0.974666]
     cylinder.su2_exec  = "SU2_CFD"
     cylinder.timeout   = 1600
     cylinder.tol       = 0.00001
@@ -138,7 +138,7 @@ def main():
     rae2822.cfg_dir   = "rans/rae2822"
     rae2822.cfg_file  = "turb_SA_RAE2822.cfg"
     rae2822.test_iter = 100
-    rae2822.test_vals = [-3.559272,-5.452676,0.884380,0.024162] #last 4 columns
+    rae2822.test_vals = [-3.541124,-5.430668,0.884369,0.024155] #last 4 columns
     rae2822.su2_exec  = "SU2_CFD"
     rae2822.timeout   = 1600
     rae2822.tol       = 0.00001
@@ -149,7 +149,7 @@ def main():
     turb_flatplate.cfg_dir   = "rans/flatplate"
     turb_flatplate.cfg_file  = "turb_SA_flatplate.cfg"
     turb_flatplate.test_iter = 100
-    turb_flatplate.test_vals = [-5.074224,-7.332708,0.000505,0.010354] #last 4 columns
+    turb_flatplate.test_vals = [-5.073461,-7.334247,-0.049972,0.010364] #last 4 columns
     turb_flatplate.su2_exec  = "SU2_CFD"
     turb_flatplate.timeout   = 1600
     turb_flatplate.tol       = 0.00001
@@ -160,7 +160,7 @@ def main():
     turb_oneram6.cfg_dir   = "rans/oneram6"
     turb_oneram6.cfg_file  = "turb_ONERAM6.cfg"
     turb_oneram6.test_iter = 10
-    turb_oneram6.test_vals = [-2.343659,-6.584583,0.230390,0.155769]#last 4 columns
+    turb_oneram6.test_vals = [-2.325960,-6.563653,0.230449,0.155832]#last 4 columns
     turb_oneram6.su2_exec  = "SU2_CFD"
     turb_oneram6.timeout   = 3200
     turb_oneram6.tol       = 0.00001
@@ -171,7 +171,7 @@ def main():
     turb_naca0012.cfg_dir   = "rans/naca0012"
     turb_naca0012.cfg_file  = "turb_NACA0012.cfg"
     turb_naca0012.test_iter = 20
-    turb_naca0012.test_vals = [-2.824671,-7.364141,-0.000026,0.803047] #last 4 columns
+    turb_naca0012.test_vals = [-2.824671,-7.365368,-0.000025,0.803040] #last 4 columns
     turb_naca0012.su2_exec  = "SU2_CFD"
     turb_naca0012.timeout   = 3200
     turb_naca0012.tol       = 0.00001
@@ -201,7 +201,7 @@ def main():
     contadj_naca0012.cfg_dir   = "cont_adj_euler/naca0012"
     contadj_naca0012.cfg_file  = "inv_NACA0012.cfg"
     contadj_naca0012.test_iter = 5
-    contadj_naca0012.test_vals = [-10.116233,-15.621299,0.006153,0.522960] #last 4 columns
+    contadj_naca0012.test_vals = [-5.450445,-10.822599,0.006153,0.524180] #last 4 columns
     contadj_naca0012.su2_exec  = "SU2_CFD"
     contadj_naca0012.timeout   = 1600
     contadj_naca0012.tol       = 0.00001
@@ -212,7 +212,7 @@ def main():
     contadj_oneram6.cfg_dir   = "cont_adj_euler/oneram6"
     contadj_oneram6.cfg_file  = "inv_ONERAM6.cfg"
     contadj_oneram6.test_iter = 5
-    contadj_oneram6.test_vals = [-6.386217,-6.528297,-0.000023,0.147770] #last 4 columns
+    contadj_oneram6.test_vals = [-6.227759,-6.480247,-0.000023,0.147470] #last 4 columns
     contadj_oneram6.su2_exec  = "SU2_CFD"
     contadj_oneram6.timeout   = 1600
     contadj_oneram6.tol       = 0.00001
@@ -227,7 +227,7 @@ def main():
     contadj_ns_cylinder.cfg_dir   = "cont_adj_navierstokes/cylinder"
     contadj_ns_cylinder.cfg_file  = "lam_cylinder.cfg"
     contadj_ns_cylinder.test_iter = 100
-    contadj_ns_cylinder.test_vals = [-0.248740,-5.647376,0.031923,25.061000] #last 4 columns
+    contadj_ns_cylinder.test_vals = [1.278213,-3.294844,-0.004221,19.141000] #last 4 columns
     contadj_ns_cylinder.su2_exec  = "SU2_CFD"
     contadj_ns_cylinder.timeout   = 1600
     contadj_ns_cylinder.tol       = 0.00001
@@ -238,7 +238,7 @@ def main():
     contadj_ns_naca0012.cfg_dir   = "cont_adj_navierstokes/naca0012"
     contadj_ns_naca0012.cfg_file  = "lam_NACA0012.cfg"
     contadj_ns_naca0012.test_iter = 100
-    contadj_ns_naca0012.test_vals = [-4.744877,-10.220491,0.013057,0.184800] #last 4 columns
+    contadj_ns_naca0012.test_vals = [-1.182458,-6.473611,-0.045685,0.188700] #last 4 columns
     contadj_ns_naca0012.su2_exec  = "SU2_CFD"
     contadj_ns_naca0012.timeout   = 1600
     contadj_ns_naca0012.tol       = 0.00001
@@ -253,7 +253,7 @@ def main():
     contadj_rans_naca0012.cfg_dir   = "cont_adj_rans/naca0012"
     contadj_rans_naca0012.cfg_file  = "turb_nasa.cfg"
     contadj_rans_naca0012.test_iter = 100
-    contadj_rans_naca0012.test_vals = [-4.351187,-8.921444,1.181000,-2.540200] #last 4 columns
+    contadj_rans_naca0012.test_vals = [-4.351179,-8.921062,1.209500,-2.540100] #last 4 columns
     contadj_rans_naca0012.su2_exec  = "SU2_CFD"
     contadj_rans_naca0012.timeout   = 1600
     contadj_rans_naca0012.tol       = 0.00001
@@ -268,7 +268,7 @@ def main():
     contadj_incomp_NACA0012.cfg_dir   = "cont_adj_incomp_euler/naca0012"
     contadj_incomp_NACA0012.cfg_file  = "incomp_NACA0012.cfg"
     contadj_incomp_NACA0012.test_iter = 140
-    contadj_incomp_NACA0012.test_vals = [-7.644867,-7.179288,0.011112,0.000000] #last 4 columns
+    contadj_incomp_NACA0012.test_vals = [-7.551025,-7.377690,0.010910,0.000000] #last 4 columns
     contadj_incomp_NACA0012.su2_exec  = "SU2_CFD"
     contadj_incomp_NACA0012.timeout   = 1600
     contadj_incomp_NACA0012.tol       = 0.00001
@@ -302,18 +302,18 @@ def main():
     ramc.tol       = 0.00001
     test_list.append(ramc)
 
-    ######################################
-    ### Spectral Method                ###
-    ######################################
-    spectral           = TestCase('spectral')
-    spectral.cfg_dir   = "spectral_method"
-    spectral.cfg_file  = "spectral.cfg"
-    spectral.test_iter = 25
-    spectral.test_vals = [-1.621870,3.852164,0.007465,0.084358]
-    spectral.su2_exec  = "SU2_CFD"
-    spectral.timeout   = 1600
-    spectral.tol       = 0.00001
-    test_list.append(spectral)
+#    ######################################
+#    ### Spectral Method                ###
+#    ######################################
+#    spectral           = TestCase('spectral')
+#    spectral.cfg_dir   = "spectral_method"
+#    spectral.cfg_file  = "spectral.cfg"
+#    spectral.test_iter = 25
+#    spectral.test_vals = [-1.621870,3.852164,0.007465,0.084358]
+#    spectral.su2_exec  = "SU2_CFD"
+#    spectral.timeout   = 1600
+#    spectral.tol       = 0.00001
+#    test_list.append(spectral)
 
     ######################################
     ### Moving Wall                    ###
@@ -324,7 +324,7 @@ def main():
     cavity.cfg_dir   = "moving_wall/cavity"
     cavity.cfg_file  = "lam_cavity.cfg"
     cavity.test_iter = 25
-    cavity.test_vals = [-5.957018,-0.518901,0.017833,-3.937129]
+    cavity.test_vals = [-5.938849,-0.478802,0.018068,-3.926360]
     cavity.su2_exec  = "SU2_CFD"
     cavity.timeout   = 1600
     cavity.tol       = 0.00001
@@ -335,7 +335,7 @@ def main():
     spinning_cylinder.cfg_dir   = "moving_wall/spinning_cylinder"
     spinning_cylinder.cfg_file  = "spinning_cylinder.cfg"
     spinning_cylinder.test_iter = 25
-    spinning_cylinder.test_vals = [-6.754859,-1.333184,8.912235,0.163860]
+    spinning_cylinder.test_vals = [-6.742704,-1.297147,8.697724,0.133608]
     spinning_cylinder.su2_exec  = "SU2_CFD"
     spinning_cylinder.timeout   = 1600
     spinning_cylinder.tol       = 0.00001
@@ -350,7 +350,7 @@ def main():
     square_cylinder.cfg_dir   = "unsteady/square_cylinder"
     square_cylinder.cfg_file  = "turb_square.cfg"
     square_cylinder.test_iter = 3
-    square_cylinder.test_vals = [-1.585044,-1.425752,1.490389,2.340439]
+    square_cylinder.test_vals = [-1.541322,0.173803,1.393649,2.188461]
     square_cylinder.su2_exec  = "SU2_CFD"
     square_cylinder.timeout   = 1600
     square_cylinder.tol       = 0.00001
