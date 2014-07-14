@@ -149,7 +149,7 @@ def main():
     rae2822_sst.cfg_dir   = "rans/rae2822"
     rae2822_sst.cfg_file  = "turb_SST_RAE2822.cfg"
     rae2822_sst.test_iter = 100
-    rae2822_sst.test_vals = [-3.542791,-5.430668,0.884369,0.024155] #last 4 columns
+    rae2822_sst.test_vals = [-1.214015,4.020029,0.884881,0.024141] #last 4 columns
     rae2822_sst.su2_exec  = "SU2_CFD"
     rae2822_sst.timeout   = 1600
     rae2822_sst.tol       = 0.00001
