@@ -113,7 +113,7 @@ def main():
     flatplate.cfg_dir   = "navierstokes/flatplate"
     flatplate.cfg_file  = "lam_flatplate.cfg"
     flatplate.test_iter = 100
-    flatplate.test_vals = [-5.233138,0.261972,-0.029718,0.012888]
+    flatplate.test_vals = [-5.234581,0.260131,-0.167010,0.012885]
     flatplate.su2_exec  = "parallel_computation.py -f"
     flatplate.timeout   = 1600
     flatplate.tol       = 0.00001
@@ -125,7 +125,7 @@ def main():
     cylinder.cfg_dir   = "navierstokes/cylinder"
     cylinder.cfg_file  = "lam_cylinder.cfg"
     cylinder.test_iter = 25
-    cylinder.test_vals = [-6.746604,-1.279699,0.096480,-1.541539]
+    cylinder.test_vals = [-6.748270,-1.281365,0.096480,-1.541539]
     cylinder.su2_exec  = "parallel_computation.py -f"
     cylinder.timeout   = 1600
     cylinder.tol       = 0.00001
@@ -135,23 +135,34 @@ def main():
     ### Compressible RANS  ###
     ##########################
 
-    # RAE2822
-    rae2822           = TestCase('rae2822')
-    rae2822.cfg_dir   = "rans/rae2822"
-    rae2822.cfg_file  = "turb_SA_RAE2822.cfg"
-    rae2822.test_iter = 100
-    rae2822.test_vals = [-3.632688,-5.433688,0.886594,0.024339] #last 4 columns
-    rae2822.su2_exec  = "parallel_computation.py -f"
-    rae2822.timeout   = 1600
-    rae2822.tol       = 0.00001
-    test_list.append(rae2822)
+    # RAE2822 SA
+    rae2822_sa           = TestCase('rae2822_sa')
+    rae2822_sa.cfg_dir   = "rans/rae2822"
+    rae2822_sa.cfg_file  = "turb_SA_RAE2822.cfg"
+    rae2822_sa.test_iter = 100
+    rae2822_sa.test_vals = [-3.634354,-5.433688,0.886594,0.024339] #last 4 columns
+    rae2822_sa.su2_exec  = "parallel_computation.py -f"
+    rae2822_sa.timeout   = 1600
+    rae2822_sa.tol       = 0.00001
+    test_list.append(rae2822_sa)
+    
+    # RAE2822 SST
+    rae2822_sst           = TestCase('rae2822_sst')
+    rae2822_sst.cfg_dir   = "rans/rae2822"
+    rae2822_sst.cfg_file  = "turb_SST_RAE2822.cfg"
+    rae2822_sst.test_iter = 100
+    rae2822_sst.test_vals = [-3.634354,-5.433688,0.886594,0.024339] #last 4 columns
+    rae2822_sst.su2_exec  = "parallel_computation.py -f"
+    rae2822_sst.timeout   = 1600
+    rae2822_sst.tol       = 0.00001
+    test_list.append(rae2822_sst)
 
     # Flat plate
     turb_flatplate           = TestCase('turb_flatplate')
     turb_flatplate.cfg_dir   = "rans/flatplate"
     turb_flatplate.cfg_file  = "turb_SA_flatplate.cfg"
     turb_flatplate.test_iter = 100
-    turb_flatplate.test_vals = [-5.077768,-7.341222,-0.049943,0.010787] #last 4 columns
+    turb_flatplate.test_vals = [-5.057124,-7.341514,-0.187198,0.010816] #last 4 columns
     turb_flatplate.su2_exec  = "parallel_computation.py -f"
     turb_flatplate.timeout   = 1600
     turb_flatplate.tol       = 0.00001
@@ -162,7 +173,7 @@ def main():
     turb_oneram6.cfg_dir   = "rans/oneram6"
     turb_oneram6.cfg_file  = "turb_ONERAM6.cfg"
     turb_oneram6.test_iter = 10
-    turb_oneram6.test_vals = [-2.325961,-6.563653,0.230449,0.155832] #last 4 columns
+    turb_oneram6.test_vals = [-2.327518,-6.563400,0.230436,0.155816] #last 4 columns
     turb_oneram6.su2_exec  = "parallel_computation.py -f"
     turb_oneram6.timeout   = 3200
     turb_oneram6.tol       = 0.00001
@@ -173,7 +184,7 @@ def main():
     turb_naca0012.cfg_dir   = "rans/naca0012"
     turb_naca0012.cfg_file  = "turb_NACA0012.cfg"
     turb_naca0012.test_iter = 20
-    turb_naca0012.test_vals = [-2.824685,-7.365369,-0.000065,0.803132] #last 4 columns
+    turb_naca0012.test_vals = [-2.826347,-7.365369,-0.000065,0.803136] #last 4 columns
     turb_naca0012.su2_exec  = "parallel_computation.py -f"
     turb_naca0012.timeout   = 3200
     turb_naca0012.tol       = 0.00001
@@ -229,7 +240,7 @@ def main():
     contadj_ns_cylinder.cfg_dir   = "cont_adj_navierstokes/cylinder"
     contadj_ns_cylinder.cfg_file  = "lam_cylinder.cfg"
     contadj_ns_cylinder.test_iter = 100
-    contadj_ns_cylinder.test_vals = [1.411731,-3.165579,-0.002510,13.583000] #last 4 columns
+    contadj_ns_cylinder.test_vals = [1.388109,-3.188446,-0.000641,14.131000] #last 4 columns
     contadj_ns_cylinder.su2_exec  = "parallel_computation.py -f"
     contadj_ns_cylinder.timeout   = 1600
     contadj_ns_cylinder.tol       = 0.00001
@@ -240,7 +251,7 @@ def main():
     contadj_ns_naca0012.cfg_dir   = "cont_adj_navierstokes/naca0012"
     contadj_ns_naca0012.cfg_file  = "lam_NACA0012.cfg"
     contadj_ns_naca0012.test_iter = 100
-    contadj_ns_naca0012.test_vals = [-1.143946,-6.467904,-0.035544,0.188570] #last 4 columns
+    contadj_ns_naca0012.test_vals = [-1.167768,-6.492855,-0.032751,0.188400] #last 4 columns
     contadj_ns_naca0012.su2_exec  = "parallel_computation.py -f"
     contadj_ns_naca0012.timeout   = 1600
     contadj_ns_naca0012.tol       = 0.00001
@@ -255,7 +266,7 @@ def main():
     contadj_rans_naca0012.cfg_dir   = "cont_adj_rans/naca0012"
     contadj_rans_naca0012.cfg_file  = "turb_nasa.cfg"
     contadj_rans_naca0012.test_iter = 100
-    contadj_rans_naca0012.test_vals = [-4.351179,-8.921062,1.209500,-2.540100] #last 4 columns
+    contadj_rans_naca0012.test_vals = [-4.351176,-8.920013,1.275200,-2.540100] #last 4 columns
     contadj_rans_naca0012.su2_exec  = "parallel_computation.py -f"
     contadj_rans_naca0012.timeout   = 1600
     contadj_rans_naca0012.tol       = 0.00001
@@ -285,7 +296,7 @@ def main():
     contadj_incomp_cylinder.cfg_dir   = "cont_adj_incomp_navierstokes/cylinder"
     contadj_incomp_cylinder.cfg_file  = "lam_incomp_cylinder.cfg"
     contadj_incomp_cylinder.test_iter = 25
-    contadj_incomp_cylinder.test_vals = [-2.424270,-2.919114,0.048393,0.000000] #last 4 columns
+    contadj_incomp_cylinder.test_vals = [-2.471797,-2.958972,0.048424,0.000000] #last 4 columns
     contadj_incomp_cylinder.su2_exec  = "parallel_computation.py -f"
     contadj_incomp_cylinder.timeout   = 1600
     contadj_incomp_cylinder.tol       = 0.00001
@@ -300,7 +311,7 @@ def main():
     ramc.cfg_dir   = "tne2/ramc"
     ramc.cfg_file  = "ramc61km.cfg"
     ramc.test_iter = 25
-    ramc.test_vals = [-4.638119,2.854417,-4.439634,0.000188]
+    ramc.test_vals = [-4.638119,2.854417,-4.439628,0.000188]
     ramc.su2_exec  = "parallel_computation.py -f"
     ramc.timeout   = 1600
     ramc.tol       = 0.00001
@@ -315,7 +326,7 @@ def main():
     cavity.cfg_dir   = "moving_wall/cavity"
     cavity.cfg_file  = "lam_cavity.cfg"
     cavity.test_iter = 25
-    cavity.test_vals = [-5.738263,-0.276213,-0.151798,-3.745224]
+    cavity.test_vals = [-5.739930,-0.277880,-0.151798,-3.745224]
     cavity.su2_exec  = "parallel_computation.py -f"
     cavity.timeout   = 1600
     cavity.tol       = 0.00001
@@ -326,7 +337,7 @@ def main():
     spinning_cylinder.cfg_dir   = "moving_wall/spinning_cylinder"
     spinning_cylinder.cfg_file  = "spinning_cylinder.cfg"
     spinning_cylinder.test_iter = 25
-    spinning_cylinder.test_vals = [-6.619934,-1.169934,8.512899,0.300307]
+    spinning_cylinder.test_vals = [-6.621605,-1.171604,8.512933,0.300307]
     spinning_cylinder.su2_exec  = "parallel_computation.py -f"
     spinning_cylinder.timeout   = 1600
     spinning_cylinder.tol       = 0.00001
@@ -341,7 +352,7 @@ def main():
     square_cylinder.cfg_dir   = "unsteady/square_cylinder"
     square_cylinder.cfg_file  = "turb_square.cfg"
     square_cylinder.test_iter = 3
-    square_cylinder.test_vals = [-1.541324,0.173811,1.393648,2.188461]
+    square_cylinder.test_vals = [-1.542162,0.048674,1.398952,2.196894]
     square_cylinder.su2_exec  = "parallel_computation.py -f"
     square_cylinder.timeout   = 1600
     square_cylinder.tol       = 0.00001
