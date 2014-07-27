@@ -238,7 +238,7 @@ def main():
     contadj_ns_cylinder.cfg_dir   = "cont_adj_navierstokes/cylinder"
     contadj_ns_cylinder.cfg_file  = "lam_cylinder.cfg"
     contadj_ns_cylinder.test_iter = 100
-    contadj_ns_cylinder.test_vals = [1.255020,-3.316504,-0.002255,19.386000] #last 4 columns
+    contadj_ns_cylinder.test_vals = [-6.412118,-11.867774,-0.032237,25.065000] #last 4 columns
     contadj_ns_cylinder.su2_exec  = "SU2_CFD"
     contadj_ns_cylinder.timeout   = 1600
     contadj_ns_cylinder.tol       = 0.00001
@@ -249,7 +249,7 @@ def main():
     contadj_ns_naca0012.cfg_dir   = "cont_adj_navierstokes/naca0012"
     contadj_ns_naca0012.cfg_file  = "lam_NACA0012.cfg"
     contadj_ns_naca0012.test_iter = 100
-    contadj_ns_naca0012.test_vals = [-1.206307,-6.498815,-0.042292,0.188510] #last 4 columns
+    contadj_ns_naca0012.test_vals = [-9.028420,-14.419251,0.005090,0.416520] #last 4 columns
     contadj_ns_naca0012.su2_exec  = "SU2_CFD"
     contadj_ns_naca0012.timeout   = 1600
     contadj_ns_naca0012.tol       = 0.00001
@@ -264,7 +264,7 @@ def main():
     contadj_rans_naca0012.cfg_dir   = "cont_adj_rans/naca0012"
     contadj_rans_naca0012.cfg_file  = "turb_nasa.cfg"
     contadj_rans_naca0012.test_iter = 100
-    contadj_rans_naca0012.test_vals = [-4.351176,-8.920013,1.275200,-2.540100] #last 4 columns
+    contadj_rans_naca0012.test_vals = [4.351209,-8.920005,-1.275200,-2.540100] #last 4 columns
     contadj_rans_naca0012.su2_exec  = "SU2_CFD"
     contadj_rans_naca0012.timeout   = 1600
     contadj_rans_naca0012.tol       = 0.00001
