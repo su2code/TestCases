@@ -294,7 +294,7 @@ def main():
     contadj_incomp_cylinder.cfg_dir   = "cont_adj_incomp_navierstokes/cylinder"
     contadj_incomp_cylinder.cfg_file  = "lam_incomp_cylinder.cfg"
     contadj_incomp_cylinder.test_iter = 25
-    contadj_incomp_cylinder.test_vals = [-2.424270,-2.919114,-0.048393,0.000000] #last 4 columns
+    contadj_incomp_cylinder.test_vals = [-2.423636,-2.916834,-0.048414,0.000000] #last 4 columns
     contadj_incomp_cylinder.su2_exec  = "SU2_CFD"
     contadj_incomp_cylinder.timeout   = 1600
     contadj_incomp_cylinder.tol       = 0.00001
