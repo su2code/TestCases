@@ -212,7 +212,7 @@ def main():
     contadj_naca0012.cfg_dir   = "cont_adj_euler/naca0012"
     contadj_naca0012.cfg_file  = "inv_NACA0012.cfg"
     contadj_naca0012.test_iter = 5
-    contadj_naca0012.test_vals = [-10.314785,-15.760957,0.006153,0.522960 ] #last 4 columns
+    contadj_naca0012.test_vals = [-12.206764,-16.000000,0.005483,0.536870] #last 4 columns
     contadj_naca0012.su2_exec  = "SU2_CFD"
     contadj_naca0012.timeout   = 1600
     contadj_naca0012.tol       = 0.00001
@@ -223,7 +223,7 @@ def main():
     contadj_oneram6.cfg_dir   = "cont_adj_euler/oneram6"
     contadj_oneram6.cfg_file  = "inv_ONERAM6.cfg"
     contadj_oneram6.test_iter = 5
-    contadj_oneram6.test_vals = [-6.360412,-6.527527,-0.000023,0.147730] #last 4 columns
+    contadj_oneram6.test_vals = [-6.353629,-6.525887,-0.000023,0.147720] #last 4 columns
     contadj_oneram6.su2_exec  = "SU2_CFD"
     contadj_oneram6.timeout   = 1600
     contadj_oneram6.tol       = 0.00001
@@ -238,7 +238,7 @@ def main():
     contadj_ns_cylinder.cfg_dir   = "cont_adj_navierstokes/cylinder"
     contadj_ns_cylinder.cfg_file  = "lam_cylinder.cfg"
     contadj_ns_cylinder.test_iter = 100
-    contadj_ns_cylinder.test_vals = [0.585731,-4.838449,-0.032295,25.085000] #last 4 columns
+    contadj_ns_cylinder.test_vals = [-0.599698,-6.065249,-0.032305,25.115000] #last 4 columns
     contadj_ns_cylinder.su2_exec  = "SU2_CFD"
     contadj_ns_cylinder.timeout   = 1600
     contadj_ns_cylinder.tol       = 0.00001
@@ -270,7 +270,7 @@ def main():
     ### Cont. adj. compressible RANS (frozen viscosity) ###
     #######################################################
 
-    # Adjoint turbulent NACA0012 (To be validated with finite differences)
+    # Adjoint turbulent NACA0012
     contadj_rans_naca0012           = TestCase('contadj_rans_naca0012')
     contadj_rans_naca0012.cfg_dir   = "cont_adj_rans/naca0012"
     contadj_rans_naca0012.cfg_file  = "turb_nasa.cfg"
@@ -280,6 +280,17 @@ def main():
     contadj_rans_naca0012.timeout   = 1600
     contadj_rans_naca0012.tol       = 0.00001
     test_list.append(contadj_rans_naca0012)
+    
+    # Adjoint turbulent RAE2822
+    contadj_rans_RAE2822           = TestCase('contadj_rans_rae2822')
+    contadj_rans_RAE2822.cfg_dir   = "cont_adj_rans/RAE2822"
+    contadj_rans_RAE2822.cfg_file  = "turb_nasa.cfg"
+    contadj_rans_RAE2822.test_iter = 100
+    contadj_rans_RAE2822.test_vals = [-4.351196,-8.920009,-1.275200,-2.540100] #last 4 columns
+    contadj_rans_RAE2822.su2_exec  = "SU2_CFD"
+    contadj_rans_RAE2822.timeout   = 1600
+    contadj_rans_RAE2822.tol       = 0.00001
+    test_list.append(contadj_rans_RAE2822)
 
     #######################################
     ### Cont. adj. incompressible Euler ###

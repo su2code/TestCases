@@ -214,7 +214,7 @@ def main():
     contadj_naca0012.cfg_dir   = "cont_adj_euler/naca0012"
     contadj_naca0012.cfg_file  = "inv_NACA0012.cfg"
     contadj_naca0012.test_iter = 5
-    contadj_naca0012.test_vals = [-10.315285,-15.765428,0.006153,0.522960] #last 4 columns
+    contadj_naca0012.test_vals = [-12.135515,-16.000000,0.005483,0.536870] #last 4 columns
     contadj_naca0012.su2_exec  = "parallel_computation.py -f"
     contadj_naca0012.timeout   = 1600
     contadj_naca0012.tol       = 0.00001
@@ -225,7 +225,7 @@ def main():
     contadj_oneram6.cfg_dir   = "cont_adj_euler/oneram6"
     contadj_oneram6.cfg_file  = "inv_ONERAM6.cfg"
     contadj_oneram6.test_iter = 5
-    contadj_oneram6.test_vals = [-6.371431,-6.534254,-0.000023,0.147730] #last 4 columns
+    contadj_oneram6.test_vals = [-6.352088,-6.532237,-0.000023,0.147720] #last 4 columns
     contadj_oneram6.su2_exec  = "parallel_computation.py -f"
     contadj_oneram6.timeout   = 1600
     contadj_oneram6.tol       = 0.00001
@@ -240,7 +240,7 @@ def main():
     contadj_ns_cylinder.cfg_dir   = "cont_adj_navierstokes/cylinder"
     contadj_ns_cylinder.cfg_file  = "lam_cylinder.cfg"
     contadj_ns_cylinder.test_iter = 100
-    contadj_ns_cylinder.test_vals = [0.589905,-4.863824,-0.032303,25.100000] #last 4 columns
+    contadj_ns_cylinder.test_vals = [-0.586316,-6.050120,-0.032305,25.115000] #last 4 columns
     contadj_ns_cylinder.su2_exec  = "parallel_computation.py -f"
     contadj_ns_cylinder.timeout   = 1600
     contadj_ns_cylinder.tol       = 0.00001
@@ -251,7 +251,7 @@ def main():
     contadj_ns_naca0012_sub.cfg_dir   = "cont_adj_navierstokes/naca0012_sub"
     contadj_ns_naca0012_sub.cfg_file  = "lam_NACA0012.cfg"
     contadj_ns_naca0012_sub.test_iter = 100
-    contadj_ns_naca0012_sub.test_vals = [-1.955724,-7.233785,0.005101,0.423430] #last 4 columns
+    contadj_ns_naca0012_sub.test_vals = [-4.234330,-9.705736,0.005161,0.398940] #last 4 columns
     contadj_ns_naca0012_sub.su2_exec  = "parallel_computation.py -f"
     contadj_ns_naca0012_sub.timeout   = 1600
     contadj_ns_naca0012_sub.tol       = 0.00001
@@ -262,7 +262,7 @@ def main():
     contadj_ns_naca0012_trans.cfg_dir   = "cont_adj_navierstokes/naca0012_trans"
     contadj_ns_naca0012_trans.cfg_file  = "lam_NACA0012.cfg"
     contadj_ns_naca0012_trans.test_iter = 100
-    contadj_ns_naca0012_trans.test_vals = [-1.955724,-7.233785,0.005101,0.423430] #last 4 columns
+    contadj_ns_naca0012_trans.test_vals = [-1.810435,-6.920519,0.014614,1.020100] #last 4 columns
     contadj_ns_naca0012_trans.su2_exec  = "parallel_computation.py -f"
     contadj_ns_naca0012_trans.timeout   = 1600
     contadj_ns_naca0012_trans.tol       = 0.00001
@@ -272,16 +272,27 @@ def main():
     ### Cont. adj. compressible RANS (frozen viscosity) ###
     #######################################################
 
-    # Adjoint turbulent NACA0012 (To be validated with finite differences)
+    # Adjoint turbulent NACA0012
     contadj_rans_naca0012           = TestCase('contadj_rans_naca0012')
     contadj_rans_naca0012.cfg_dir   = "cont_adj_rans/naca0012"
     contadj_rans_naca0012.cfg_file  = "turb_nasa.cfg"
     contadj_rans_naca0012.test_iter = 100
-    contadj_rans_naca0012.test_vals = [-4.351196,-8.920009,-1.275200,-2.540100] #last 4 columns
+    contadj_rans_naca0012.test_vals = [-4.351102,-8.919996,-1.275200,-2.541400] #last 4 columns
     contadj_rans_naca0012.su2_exec  = "parallel_computation.py -f"
     contadj_rans_naca0012.timeout   = 1600
     contadj_rans_naca0012.tol       = 0.00001
     test_list.append(contadj_rans_naca0012)
+    
+    # Adjoint turbulent RAE2822
+    contadj_rans_RAE2822           = TestCase('contadj_rans_rae822')
+    contadj_rans_RAE2822.cfg_dir   = "cont_adj_rans/RAE2822"
+    contadj_rans_RAE2822.cfg_file  = "turb_nasa.cfg"
+    contadj_rans_RAE2822.test_iter = 100
+    contadj_rans_RAE2822.test_vals = [-4.351102,-8.919996,-1.275200,-2.541400] #last 4 columns
+    contadj_rans_RAE2822.su2_exec  = "parallel_computation.py -f"
+    contadj_rans_RAE2822.timeout   = 1600
+    contadj_rans_RAE2822.tol       = 0.00001
+    test_list.append(contadj_rans_rae2822)
 
     #######################################
     ### Cont. adj. incompressible Euler ###
