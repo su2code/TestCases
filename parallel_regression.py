@@ -284,14 +284,14 @@ def main():
     test_list.append(contadj_rans_naca0012)
     
     # Adjoint turbulent RAE2822
-    contadj_rans_RAE2822           = TestCase('contadj_rans_rae822')
-    contadj_rans_RAE2822.cfg_dir   = "cont_adj_rans/RAE2822"
-    contadj_rans_RAE2822.cfg_file  = "turb_nasa.cfg"
-    contadj_rans_RAE2822.test_iter = 100
-    contadj_rans_RAE2822.test_vals = [-4.351102,-8.919996,-1.275200,-2.541400] #last 4 columns
-    contadj_rans_RAE2822.su2_exec  = "parallel_computation.py -f"
-    contadj_rans_RAE2822.timeout   = 1600
-    contadj_rans_RAE2822.tol       = 0.00001
+    contadj_rans_rae2822           = TestCase('contadj_rans_rae822')
+    contadj_rans_rae2822.cfg_dir   = "cont_adj_rans/rae2822"
+    contadj_rans_rae2822.cfg_file  = "turb_SA_RAE2822.cfg"
+    contadj_rans_rae2822.test_iter = 100
+    contadj_rans_rae2822.test_vals = [-4.351102,-8.919996,-1.275200,-2.541400] #last 4 columns
+    contadj_rans_rae2822.su2_exec  = "parallel_computation.py -f"
+    contadj_rans_rae2822.timeout   = 1600
+    contadj_rans_rae2822.tol       = 0.00001
     test_list.append(contadj_rans_rae2822)
 
     #######################################
