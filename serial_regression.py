@@ -244,16 +244,27 @@ def main():
     contadj_ns_cylinder.tol       = 0.00001
     test_list.append(contadj_ns_cylinder)
 
-    # Adjoint laminar naca0012
-    contadj_ns_naca0012           = TestCase('contadj_ns_naca0012')
-    contadj_ns_naca0012.cfg_dir   = "cont_adj_navierstokes/naca0012"
-    contadj_ns_naca0012.cfg_file  = "lam_NACA0012.cfg"
-    contadj_ns_naca0012.test_iter = 100
-    contadj_ns_naca0012.test_vals = [-1.954262,-7.237075,0.005101,0.424420] #last 4 columns
-    contadj_ns_naca0012.su2_exec  = "SU2_CFD"
-    contadj_ns_naca0012.timeout   = 1600
-    contadj_ns_naca0012.tol       = 0.00001
-    test_list.append(contadj_ns_naca0012)
+    # Adjoint laminar naca0012 subsonic
+    contadj_ns_naca0012_sub           = TestCase('contadj_ns_naca0012_sub')
+    contadj_ns_naca0012_sub.cfg_dir   = "cont_adj_navierstokes/naca0012_sub"
+    contadj_ns_naca0012_sub.cfg_file  = "lam_naca0012.cfg"
+    contadj_ns_naca0012_sub.test_iter = 100
+    contadj_ns_naca0012_sub.test_vals = [-1.954262,-7.237075,0.005101,0.424420] #last 4 columns
+    contadj_ns_naca0012_sub.su2_exec  = "SU2_CFD"
+    contadj_ns_naca0012_sub.timeout   = 1600
+    contadj_ns_naca0012_sub.tol       = 0.00001
+    test_list.append(contadj_ns_naca0012_sub)
+    
+    # Adjoint laminar naca0012 transonic
+    contadj_ns_naca0012_trans           = TestCase('contadj_ns_naca0012_trans')
+    contadj_ns_naca0012_trans.cfg_dir   = "cont_adj_navierstokes/naca0012_trans"
+    contadj_ns_naca0012_trans.cfg_file  = "lam_naca0012.cfg"
+    contadj_ns_naca0012_trans.test_iter = 100
+    contadj_ns_naca0012_trans.test_vals = [-1.954262,-7.237075,0.005101,0.424420] #last 4 columns
+    contadj_ns_naca0012_trans.su2_exec  = "SU2_CFD"
+    contadj_ns_naca0012_trans.timeout   = 1600
+    contadj_ns_naca0012_trans.tol       = 0.00001
+    test_list.append(contadj_ns_naca0012_trans)
 
     #######################################################
     ### Cont. adj. compressible RANS (frozen viscosity) ###
