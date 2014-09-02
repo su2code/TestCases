@@ -389,6 +389,38 @@ def main():
     square_cylinder.tol       = 0.00001
     test_list.append(square_cylinder)
 
+
+
+    ######################################
+    ### Real_Gas                       ###
+    ######################################
+
+    # Supersonic_turbine
+    supersonic_turbine           = TestCase('supersonic_turbine')
+    supersonic_turbine.cfg_dir   = "real_gas/euler/supersonic_turbine"
+    supersonic_turbine.cfg_file  = "supersonic.cfg"
+    supersonic_turbine.test_iter = 19
+    supersonic_turbine.test_vals = [-0.249215,5.701822,0.000000,0.000000 ]
+    supersonic_turbine.su2_exec  = "SU2_CFD"
+    supersonic_turbine.timeout   = 1600
+    supersonic_turbine.tol       = 0.00001
+    test_list.append(square_cylinder)
+
+
+
+    # Supersonic_turbine
+    supersonic_nozzle           = TestCase('supersonic_nozzle')
+    supersonic_nozzle.cfg_dir   = "real_gas/euler/2Dnozzle"
+    supersonic_nozzle.cfg_file  = "nozzle_MDM_shockwave.cfg"
+    supersonic_nozzle.test_iter = 559
+    supersonic_nozzle.test_vals = [-0.371019,4.755257,0.000000,0.000000 ]
+    supersonic_nozzle.su2_exec  = "SU2_CFD"
+    supersonic_nozzle.timeout   = 1600
+    supersonic_nozzle.tol       = 0.00001
+    test_list.append(square_cylinder)
+
+
+
     ######################################
     ### RUN TESTS                      ###
     ######################################  
