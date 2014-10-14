@@ -37,7 +37,9 @@ def main():
 
     # sync SU2 repo
     os.chdir( os.environ['SU2_HOME'] )
-    os.system('git pull')  
+    os.system('git fetch')
+    os.system('git checkout develop')
+    os.system('git pull origin develop')
 
     # Build SU2_CFD in parallel using autoconf
     os.system('./configure --prefix=$SU2_HOME --with-MPI=mpicxx CXXFLAGS="-O3"')
