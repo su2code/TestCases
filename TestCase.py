@@ -152,17 +152,17 @@ class TestCase:
 
         print 'test_iter=%d, test_vals: '%self.test_iter,
         for j in self.test_vals:
-            print '%f '%j,
+            print '%f,'%j,
         print '\n',
 
         print 'sim_vals: ',
         for j in sim_vals:
-            print '%f '%j,
+            print '%f,'%j,
         print '\n',
 
         print 'delta_vals: ',
         for j in delta_vals:
-            print '%f '%j,
+            print '%f,'%j,
         print '\n'
 
         os.chdir(workdir)
