@@ -391,37 +391,31 @@ def main():
     square_cylinder.tol       = 0.00001
     test_list.append(square_cylinder)
 
-
-
     ######################################
     ### Real_Gas                       ###
     ######################################
 
-    # Supersonic_turbine
-    supersonic_turbine           = TestCase('supersonic_turbine')
-    supersonic_turbine.cfg_dir   = "real_gas/euler/supersonic_turbine"
-    supersonic_turbine.cfg_file  = "supersonic.cfg"
-    supersonic_turbine.test_iter = 19
-    supersonic_turbine.test_vals = [-0.386694, 5.565021, 0.000000, 0.000000]
-    supersonic_turbine.su2_exec  = "SU2_CFD"
-    supersonic_turbine.timeout   = 1600
-    supersonic_turbine.tol       = 0.00001
-    test_list.append(supersonic_turbine)
+    # ls89_sa
+    ls89_sa           = TestCase('ls89_sa')
+    ls89_sa.cfg_dir   = "nicf/LS89"
+    ls89_sa.cfg_file  = "turb_SA_PR.cfg"
+    ls89_sa.test_iter = 100
+    ls89_sa.test_vals = [-7.034238, -11.986152, 0.068730, 0.152379]
+    ls89_sa.su2_exec  = "SU2_CFD"
+    ls89_sa.timeout   = 1600
+    ls89_sa.tol       = 0.00001
+    test_list.append(ls89_sa)
 
-
-
-    # supersonic_nozzle
-    supersonic_nozzle           = TestCase('supersonic_nozzle')
-    supersonic_nozzle.cfg_dir   = "real_gas/euler/2Dnozzle"
-    supersonic_nozzle.cfg_file  = "nozzle_MDM_shockwave.cfg"
-    supersonic_nozzle.test_iter = 559
-    supersonic_nozzle.test_vals = [-2.697806, 2.427554, 0.000000, 0.000000]
-    supersonic_nozzle.su2_exec  = "SU2_CFD"
-    supersonic_nozzle.timeout   = 1600
-    supersonic_nozzle.tol       = 0.00001
-    test_list.append(supersonic_nozzle)
-
-
+    # ls89_sst                                                                                                                                                                                                
+    ls89_sst           = TestCase('ls89_sst')
+    ls89_sst.cfg_dir   = "nicf/LS89"
+    ls89_sst.cfg_file  = "turb_SST_PR.cfg"
+    ls89_sst.test_iter = 100
+    ls89_sst.test_vals = [-8.902220, -1.625677, 0.068978, 0.153799]
+    ls89_sst.su2_exec  = "SU2_CFD"
+    ls89_sst.timeout   = 1600
+    ls89_sst.tol       = 0.00001
+    test_list.append(ls89_sst)
 
     ######################################
     ### RUN TESTS                      ###
