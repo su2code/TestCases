@@ -400,7 +400,7 @@ def main():
     ls89_sa.cfg_dir   = "nicf/LS89"
     ls89_sa.cfg_file  = "turb_SA_PR.cfg"
     ls89_sa.test_iter = 100
-    ls89_sa.test_vals = [-7.034238, -11.986152, 0.068730, 0.152379]
+    ls89_sa.test_vals = [-7.038263, -11.990177, 0.068730, 0.152379]
     ls89_sa.su2_exec  = "SU2_CFD"
     ls89_sa.timeout   = 1600
     ls89_sa.tol       = 0.00001
@@ -411,7 +411,7 @@ def main():
     ls89_sst.cfg_dir   = "nicf/LS89"
     ls89_sst.cfg_file  = "turb_SST_PR.cfg"
     ls89_sst.test_iter = 100
-    ls89_sst.test_vals = [-8.902220, -1.625677, 0.068978, 0.153799]
+    ls89_sst.test_vals = [-8.906245, -1.629702, 0.068978, 0.153799]
     ls89_sst.su2_exec  = "SU2_CFD"
     ls89_sst.timeout   = 1600
     ls89_sst.tol       = 0.00001
