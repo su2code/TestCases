@@ -383,6 +383,32 @@ def main():
     test_list.append(square_cylinder)
 
     ######################################
+    ### Unsteady                       ###
+    ######################################	
+
+    # Rarefaction shock wave edge_VW
+    edge_VW           = TestCase('edge_VW')
+    edge_VW.cfg_dir   = "nicf/edge"
+    edge_VW.cfg_file  = "edge_VW.cfg"
+    edge_VW.test_iter = 100
+    edge_VW.test_vals = [-5.723975, -3.267743, -0.000046, 0.000000]
+    edge_VW.su2_exec  = "parallel_computation.py -f"
+    edge_VW.timeout   = 1600
+    edge_VW.tol       = 0.00001
+    test_list.append(edge_VW)
+
+    # Rarefaction shock wave edge_PPR
+    edge_PPR           = TestCase('edge_PPR')
+    edge_PPR.cfg_dir   = "nicf/edge"
+    edge_PPR.cfg_file  = "edge_PPR.cfg"
+    edge_PPR.test_iter = 100
+    edge_PPR.test_vals = [-6.253083, -3.822346, -0.002053, 0.000000]
+    edge_PPR.su2_exec  = "parallel_computation.py -f"
+    edge_PPR.timeout   = 1600
+    edge_PPR.tol       = 0.00001
+    test_list.append(edge_PPR)
+
+    ######################################
     ### RUN TESTS                      ###
     ######################################
 
