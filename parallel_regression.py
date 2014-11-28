@@ -383,7 +383,7 @@ def main():
     test_list.append(square_cylinder)
 
     ######################################
-    ### Unsteady                       ###
+    ### Real_Gas                       ###
     ######################################	
 
     # Rarefaction shock wave edge_VW
@@ -402,7 +402,7 @@ def main():
     edge_PPR.cfg_dir   = "nicf/edge"
     edge_PPR.cfg_file  = "edge_PPR.cfg"
     edge_PPR.test_iter = 100
-    edge_PPR.test_vals = [-6.253083, -3.822346, -0.002053, 0.000000]
+    edge_PPR.test_vals = [-6.275801, -3.846499, -0.000056, 0.000000]
     edge_PPR.su2_exec  = "parallel_computation.py -f"
     edge_PPR.timeout   = 1600
     edge_PPR.tol       = 0.00001
