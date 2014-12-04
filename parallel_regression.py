@@ -2,11 +2,10 @@
 
 ## \file parallel_regression.py
 #  \brief Python script for automated regression testing of SU2 examples
-#  \author Aniket C. Aranake, Alejandro Campos, Thomas D. Economon, Trent Lukaczyk
-#  \version 3.2
+#  \author A. Aranake, A. Campos, T. Economon, T. Lukaczyk
+#  \version 3.2.5 "eagle"
 #
-# Stanford University Unstructured (SU2) Code
-# Copyright (C) 2012-2014 Aerospace Design Laboratory
+# Copyright (C) 2012-2014 SU2 <https://github.com/su2code>.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
