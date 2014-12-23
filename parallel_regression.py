@@ -1,4 +1,4 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
 ## \file parallel_regression.py
 #  \brief Python script for automated regression testing of SU2 examples
@@ -24,7 +24,7 @@ import sys,time, os, subprocess, datetime, signal, os.path
 from TestCase import TestCase    
 
 def main():
-    '''This program runs SU^2 and ensures that the output matches specified values. 
+    '''This program runs SU2 and ensures that the output matches specified values. 
        This will be used to do nightly checks to make sure nothing is broken. '''
 
     workdir = os.getcwd()
@@ -152,7 +152,7 @@ def main():
     rae2822_sst.cfg_dir   = "rans/rae2822"
     rae2822_sst.cfg_file  = "turb_SST_RAE2822.cfg"
     rae2822_sst.test_iter = 100
-    rae2822_sst.test_vals = [-1.178531, 4.029122, 0.894342, 0.024988] #last 4 columns
+    rae2822_sst.test_vals = [-1.178534, 4.029258, 0.894386, 0.024992] #last 4 columns
     rae2822_sst.su2_exec  = "parallel_computation.py -f"
     rae2822_sst.timeout   = 1600
     rae2822_sst.tol       = 0.00001

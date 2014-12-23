@@ -24,7 +24,7 @@ import sys,time, os, subprocess, datetime, signal, os.path
 from TestCase import TestCase
 
 def main():
-    '''This program runs SU^2 and ensures that the output matches specified values. 
+    '''This program runs SU2 and ensures that the output matches specified values. 
        This will be used to do nightly checks to make sure nothing is broken. '''
 
     workdir = os.getcwd()
@@ -410,7 +410,7 @@ def main():
     ls89_sst.cfg_dir   = "nicf/LS89"
     ls89_sst.cfg_file  = "turb_SST_PR.cfg"
     ls89_sst.test_iter = 100
-    ls89_sst.test_vals =  [-8.901551, -1.625728, 0.067796, 0.151151]
+    ls89_sst.test_vals =  [-8.901536, -1.625465, 0.067796, 0.151151]
     ls89_sst.su2_exec  = "SU2_CFD"
     ls89_sst.timeout   = 1600
     ls89_sst.tol       = 0.00001
