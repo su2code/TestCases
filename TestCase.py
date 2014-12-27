@@ -3,11 +3,11 @@
 ## \file TestCase.py
 #  \brief Python class for automated regression testing of SU2 examples
 #  \author A. Aranake, A. Campos, T. Economon, T. Lukaczyk
-#  \version 3.2.6 "eagle"
+#  \version 3.2.7 "eagle"
 #
-# Copyright (C) 2012-2014 SU2 <https://github.com/su2code>.
+# Copyright (C) 2012-2014 SU2 Core Developers.
 #
-# This program is free software: you can redistribute it and/or modify
+# SU2 is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
@@ -149,12 +149,14 @@ class TestCase:
         if iter_missing:
             print 'ERROR: The iteration number %d could not be found.'%self.test_iter
 
-        print 'test_iter=%d, test_vals: '%self.test_iter,
+        print 'test_iter=%d \n'%self.test_iter,
+
+        print 'test_vals (stored): ',
         for j in self.test_vals:
             print '%f,'%j,
         print '\n',
 
-        print 'sim_vals: ',
+        print 'sim_vals (computed): ',
         for j in sim_vals:
             print '%f,'%j,
         print '\n',

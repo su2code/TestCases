@@ -3,22 +3,22 @@
 ## \file serial_regression.py
 #  \brief Python script for automated regression testing of SU2 examples
 #  \author A. Aranake, A. Campos, T. Economon, T. Lukaczyk
-#  \version 3.2.6 "eagle"
+#  \version 3.2.7 "eagle"
 #
-# Copyright (C) 2012-2014 SU2 <https://github.com/su2code>.
+# Copyright (C) 2012-2014 SU2 Core Developers.
 #
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+# SU2 is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
 #
-# This program is distributed in the hope that it will be useful,
+# SU2 is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+# Lesser General Public License for more details.
 #
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# You should have received a copy of the GNU Lesser General Public
+# License along with SU2. If not, see <http://www.gnu.org/licenses/>.
 
 import sys,time, os, subprocess, datetime, signal, os.path
 from TestCase import TestCase
@@ -399,7 +399,7 @@ def main():
     ls89_sa.cfg_dir   = "nicf/LS89"
     ls89_sa.cfg_file  = "turb_SA_PR.cfg"
     ls89_sa.test_iter = 100
-    ls89_sa.test_vals = [-7.042593, -12.006909, 0.067512, 0.149691]
+    ls89_sa.test_vals = [-7.042592, -12.006909, 0.067512, 0.149691]
     ls89_sa.su2_exec  = "SU2_CFD"
     ls89_sa.timeout   = 1600
     ls89_sa.tol       = 0.00001
@@ -410,7 +410,7 @@ def main():
     ls89_sst.cfg_dir   = "nicf/LS89"
     ls89_sst.cfg_file  = "turb_SST_PR.cfg"
     ls89_sst.test_iter = 100
-    ls89_sst.test_vals =  [-8.901537, -1.625734, 0.067796, 0.151151]
+    ls89_sst.test_vals =  [-8.901415, -1.625736, 0.067797, 0.15115]
     ls89_sst.su2_exec  = "SU2_CFD"
     ls89_sst.timeout   = 1600
     ls89_sst.tol       = 0.00001
