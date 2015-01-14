@@ -30,9 +30,16 @@ def main():
     workdir = os.getcwd()
 
     # environment variables for SU2
+    os.environ['TEST_HOME'] = '/home/ale11/.cruise/projects/parallel_regression/work'
     os.environ['SU2_HOME'] = '/home/ale11/.cruise/projects/parallel_regression/work/SU2'
     os.environ['SU2_RUN'] = '/home/ale11/.cruise/projects/parallel_regression/work/SU2/bin'
     os.environ['PATH'] = os.environ['PATH'] + ':' + os.environ['SU2_RUN']
+
+    # sync Test Cases repo
+    os.chdir( os.environ['TEST_HOME'] )
+    os.system('git fetch')
+    os.system('git checkout develop')
+    os.system('git pull origin develop')
 
     # sync SU2 repo
     os.chdir( os.environ['SU2_HOME'] )
