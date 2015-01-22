@@ -125,7 +125,6 @@ def main():
     flatplate.tol       = 0.00001
     test_list.append(flatplate)
 
-
     # Laminar cylinder (steady)
     cylinder           = TestCase('cylinder')
     cylinder.cfg_dir   = "navierstokes/cylinder"
@@ -184,17 +183,28 @@ def main():
     turb_oneram6.timeout   = 3200
     turb_oneram6.tol       = 0.00001
     test_list.append(turb_oneram6)
-
-    # NACA0012
-    turb_naca0012           = TestCase('turb_naca0012')
-    turb_naca0012.cfg_dir   = "rans/naca0012"
-    turb_naca0012.cfg_file  = "turb_NACA0012.cfg"
-    turb_naca0012.test_iter = 20
-    turb_naca0012.test_vals = [-2.826353, -7.364860, -0.000019, 0.801902] #last 4 columns
-    turb_naca0012.su2_exec  = "SU2_CFD"
-    turb_naca0012.timeout   = 3200
-    turb_naca0012.tol       = 0.00001
-    test_list.append(turb_naca0012)
+    
+    # NACA0012 (SA, FUN3D results: CL=1.0983, CD=0.01242)
+    turb_naca0012_sa           = TestCase('turb_naca0012_sa')
+    turb_naca0012_sa.cfg_dir   = "rans/naca0012"
+    turb_naca0012_sa.cfg_file  = "turb_NACA0012_sa.cfg"
+    turb_naca0012_sa.test_iter = 20
+    turb_naca0012_sa.test_vals = [-2.826372, -7.364862, -0.000092, 0.802008] #last 4 columns
+    turb_naca0012_sa.su2_exec  = "SU2_CFD"
+    turb_naca0012_sa.timeout   = 3200
+    turb_naca0012_sa.tol       = 0.00001
+    test_list.append(turb_naca0012_sa)
+    
+    # NACA0012 (SST, FUN3D results: CL=1.0840, CD=0.01253)
+    turb_naca0012_sst           = TestCase('turb_naca0012_sst')
+    turb_naca0012_sst.cfg_dir   = "rans/naca0012"
+    turb_naca0012_sst.cfg_file  = "turb_NACA0012_sst.cfg"
+    turb_naca0012_sst.test_iter = 20
+    turb_naca0012_sst.test_vals = [-2.826372, -7.364862, -0.000092, 0.802008] #last 4 columns
+    turb_naca0012_sst.su2_exec  = "SU2_CFD"
+    turb_naca0012_sst.timeout   = 3200
+    turb_naca0012_sst.tol       = 0.00001
+    test_list.append(turb_naca0012_sst)
 
     ############################
     ### Incompressible RANS  ###
