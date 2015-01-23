@@ -192,7 +192,7 @@ def main():
     turb_naca0012_sa.cfg_dir   = "rans/naca0012"
     turb_naca0012_sa.cfg_file  = "turb_NACA0012_sa.cfg"
     turb_naca0012_sa.test_iter = 20
-    turb_naca0012_sa.test_vals = [-2.826372, -7.364862, -0.000092, 0.802008] #last 4 columns
+    turb_naca0012_sa.test_vals = [-11.780196, -9.778338, 1.098506, 0.012417] #last 4 columns
     turb_naca0012_sa.su2_exec  = "parallel_computation.py -f"
     turb_naca0012_sa.timeout   = 3200
     turb_naca0012_sa.tol       = 0.00001
