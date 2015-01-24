@@ -3,9 +3,9 @@
 ## \file serial_regression.py
 #  \brief Python script for automated regression testing of SU2 examples
 #  \author A. Aranake, A. Campos, T. Economon, T. Lukaczyk
-#  \version 3.2.7 "eagle"
+#  \version 3.2.7.1 "eagle"
 #
-# Copyright (C) 2012-2014 SU2 Core Developers.
+# Copyright (C) 2012-2015 SU2 Core Developers.
 #
 # SU2 is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public
@@ -30,10 +30,17 @@ def main():
     workdir = os.getcwd()
 
     # environment variables for SU2
+    os.environ['TEST_HOME'] = '/home/ale11/.cruise/projects/serial_regression/work'
     os.environ['SU2_HOME'] = '/home/ale11/.cruise/projects/serial_regression/work/SU2'
     os.environ['SU2_RUN'] = '/home/ale11/.cruise/projects/serial_regression/work/SU2/bin'
     os.environ['PATH'] = os.environ['PATH'] + ':' + os.environ['SU2_RUN']
 
+    # sync Test Cases repo
+    os.chdir( os.environ['TEST_HOME'] )
+    os.system('git fetch')
+    os.system('git checkout develop')
+    os.system('git pull origin develop')
+    
     # sync SU2 repo
     os.chdir( os.environ['SU2_HOME'] )
     os.system('git fetch')
@@ -75,7 +82,7 @@ def main():
     naca0012.cfg_dir   = "euler/naca0012"
     naca0012.cfg_file  = "inv_NACA0012_Roe.cfg"
     naca0012.test_iter = 100
-    naca0012.test_vals = [-6.198537, -5.577721, 0.334810, 0.022197]
+    naca0012.test_vals = [-6.198509, -5.577694, 0.334810, 0.022197]
     naca0012.su2_exec  = "SU2_CFD"
     naca0012.timeout   = 1600
     naca0012.tol       = 0.00001
@@ -112,19 +119,18 @@ def main():
     flatplate.cfg_dir   = "navierstokes/flatplate"
     flatplate.cfg_file  = "lam_flatplate.cfg"
     flatplate.test_iter = 100
-    flatplate.test_vals = [-5.228462, 0.265581, -0.166503, 0.013013]
+    flatplate.test_vals = [-5.231916, 0.261866, -0.166832, 0.012717]
     flatplate.su2_exec  = "SU2_CFD"
     flatplate.timeout   = 1600
     flatplate.tol       = 0.00001
     test_list.append(flatplate)
-
 
     # Laminar cylinder (steady)
     cylinder           = TestCase('cylinder')
     cylinder.cfg_dir   = "navierstokes/cylinder"
     cylinder.cfg_file  = "lam_cylinder.cfg"
     cylinder.test_iter = 25
-    cylinder.test_vals = [-6.765426, -1.297422, 0.019501, 0.310134]
+    cylinder.test_vals = [-6.765426, -1.297422, 0.019496, 0.310082]
     cylinder.su2_exec  = "SU2_CFD"
     cylinder.timeout   = 1600
     cylinder.tol       = 0.00001
@@ -161,7 +167,7 @@ def main():
     turb_flatplate.cfg_dir   = "rans/flatplate"
     turb_flatplate.cfg_file  = "turb_SA_flatplate.cfg"
     turb_flatplate.test_iter = 100
-    turb_flatplate.test_vals = [-5.067553, -7.354291, -0.187192, 0.010831] #last 4 columns
+    turb_flatplate.test_vals = [-5.069447, -7.354599, -0.187187, 0.010831] #last 4 columns
     turb_flatplate.su2_exec  = "SU2_CFD"
     turb_flatplate.timeout   = 1600
     turb_flatplate.tol       = 0.00001
@@ -177,17 +183,28 @@ def main():
     turb_oneram6.timeout   = 3200
     turb_oneram6.tol       = 0.00001
     test_list.append(turb_oneram6)
-
-    # NACA0012
-    turb_naca0012           = TestCase('turb_naca0012')
-    turb_naca0012.cfg_dir   = "rans/naca0012"
-    turb_naca0012.cfg_file  = "turb_NACA0012.cfg"
-    turb_naca0012.test_iter = 20
-    turb_naca0012.test_vals = [-2.826358, -7.364211, -0.000020, 0.803040] #last 4 columns
-    turb_naca0012.su2_exec  = "SU2_CFD"
-    turb_naca0012.timeout   = 3200
-    turb_naca0012.tol       = 0.00001
-    test_list.append(turb_naca0012)
+    
+    # NACA0012 (SA, FUN3D results: CL=1.0983, CD=0.01242)
+    turb_naca0012_sa           = TestCase('turb_naca0012_sa')
+    turb_naca0012_sa.cfg_dir   = "rans/naca0012"
+    turb_naca0012_sa.cfg_file  = "turb_NACA0012_sa.cfg"
+    turb_naca0012_sa.test_iter = 20
+    turb_naca0012_sa.test_vals = [-11.780196, -9.778338, 1.098506, 0.012417] #last 4 columns
+    turb_naca0012_sa.su2_exec  = "SU2_CFD"
+    turb_naca0012_sa.timeout   = 3200
+    turb_naca0012_sa.tol       = 0.00001
+    test_list.append(turb_naca0012_sa)
+    
+    # NACA0012 (SST, FUN3D results: CL=1.0840, CD=0.01253)
+    turb_naca0012_sst           = TestCase('turb_naca0012_sst')
+    turb_naca0012_sst.cfg_dir   = "rans/naca0012"
+    turb_naca0012_sst.cfg_file  = "turb_NACA0012_sst.cfg"
+    turb_naca0012_sst.test_iter = 20
+    turb_naca0012_sst.test_vals = [-8.290777, -1.743118, 1.084186, 0.012583] #last 4 columns
+    turb_naca0012_sst.su2_exec  = "SU2_CFD"
+    turb_naca0012_sst.timeout   = 3200
+    turb_naca0012_sst.tol       = 0.00001
+    test_list.append(turb_naca0012_sst)
 
     ############################
     ### Incompressible RANS  ###
@@ -358,7 +375,7 @@ def main():
     cavity.cfg_dir   = "moving_wall/cavity"
     cavity.cfg_file  = "lam_cavity.cfg"
     cavity.test_iter = 25
-    cavity.test_vals = [-5.627883, -0.164418, 0.051983, 2.546202]
+    cavity.test_vals = [-5.627934, -0.164470, 0.051972, 2.547034]
     cavity.su2_exec  = "SU2_CFD"
     cavity.timeout   = 1600
     cavity.tol       = 0.00001
@@ -369,7 +386,7 @@ def main():
     spinning_cylinder.cfg_dir   = "moving_wall/spinning_cylinder"
     spinning_cylinder.cfg_file  = "spinning_cylinder.cfg"
     spinning_cylinder.test_iter = 25
-    spinning_cylinder.test_vals = [-6.851254, -1.408408, 9.093772, 0.060754]
+    spinning_cylinder.test_vals = [-6.854068, -1.410728, 9.092538, 0.060628]
     spinning_cylinder.su2_exec  = "SU2_CFD"
     spinning_cylinder.timeout   = 1600
     spinning_cylinder.tol       = 0.00001
