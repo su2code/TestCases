@@ -159,7 +159,7 @@ def main():
     rae2822_sst.cfg_dir   = "rans/rae2822"
     rae2822_sst.cfg_file  = "turb_SST_RAE2822.cfg"
     rae2822_sst.test_iter = 100
-    rae2822_sst.test_vals = [-1.178534, 4.029258, 0.894386, 0.024992] #last 4 columns
+    rae2822_sst.test_vals = [-1.176063, 4.024406, 0.894383, 0.024992] #last 4 columns
     rae2822_sst.su2_exec  = "parallel_computation.py -f"
     rae2822_sst.timeout   = 1600
     rae2822_sst.tol       = 0.00001
@@ -352,7 +352,7 @@ def main():
     ramc.cfg_dir   = "tne2/ramc"
     ramc.cfg_file  = "ramc61km.cfg"
     ramc.test_iter = 25
-    ramc.test_vals = [-4.638119, 2.854417, -4.439628, 0.000188]
+    ramc.test_vals = [-4.643029, 2.849441, -4.443852, 0.000313]
     ramc.su2_exec  = "parallel_computation.py -f"
     ramc.timeout   = 1600
     ramc.tol       = 0.00001
@@ -393,7 +393,7 @@ def main():
     square_cylinder.cfg_dir   = "unsteady/square_cylinder"
     square_cylinder.cfg_file  = "turb_square.cfg"
     square_cylinder.test_iter = 3
-    square_cylinder.test_vals = [-1.542156, 0.048663, 1.398952, 2.196894]
+    square_cylinder.test_vals = [-1.544602, 0.048579, 1.398951, 2.196894]
     square_cylinder.su2_exec  = "parallel_computation.py -f"
     square_cylinder.timeout   = 1600
     square_cylinder.tol       = 0.00001

@@ -156,7 +156,7 @@ def main():
     rae2822_sst.cfg_dir   = "rans/rae2822"
     rae2822_sst.cfg_file  = "turb_SST_RAE2822.cfg"
     rae2822_sst.test_iter = 100
-    rae2822_sst.test_vals = [-1.186943, 4.023140, 0.886788, 0.024927] #last 4 columns
+    rae2822_sst.test_vals = [-1.185243, 4.018464, 0.886786, 0.024927] #last 4 columns
     rae2822_sst.su2_exec  = "SU2_CFD"
     rae2822_sst.timeout   = 1600
     rae2822_sst.tol       = 0.00001
@@ -347,7 +347,7 @@ def main():
     ramc.cfg_dir   = "tne2/ramc"
     ramc.cfg_file  = "ramc61km.cfg"
     ramc.test_iter = 25
-    ramc.test_vals = [-4.638119, 2.854417, -4.439628, 0.000188]
+    ramc.test_vals = [-4.643029, 2.849441, -4.443852, 0.000313]
     ramc.su2_exec  = "SU2_CFD"
     ramc.timeout   = 1600
     ramc.tol       = 0.00001
@@ -401,7 +401,7 @@ def main():
     square_cylinder.cfg_dir   = "unsteady/square_cylinder"
     square_cylinder.cfg_file  = "turb_square.cfg"
     square_cylinder.test_iter = 3
-    square_cylinder.test_vals = [-1.542156, 0.048662, 1.398952, 2.196893]
+    square_cylinder.test_vals = [-1.544603, 0.048578, 1.398951, 2.196894]
     square_cylinder.su2_exec  = "SU2_CFD"
     square_cylinder.timeout   = 1600
     square_cylinder.tol       = 0.00001
@@ -416,22 +416,22 @@ def main():
     ls89_sa.cfg_dir   = "nicf/LS89"
     ls89_sa.cfg_file  = "turb_SA_PR.cfg"
     ls89_sa.test_iter = 100
-    ls89_sa.test_vals = [-7.042592, -12.006909, 0.067512, 0.149691]
+    ls89_sa.test_vals = [-7.042507, -12.006819, 0.067514, 0.149690]
     ls89_sa.su2_exec  = "SU2_CFD"
     ls89_sa.timeout   = 1600
     ls89_sa.tol       = 0.00001
     test_list.append(ls89_sa)
 
-#    # ls89_sst
-#    ls89_sst           = TestCase('ls89_sst')
-#    ls89_sst.cfg_dir   = "nicf/LS89"
-#    ls89_sst.cfg_file  = "turb_SST_PR.cfg"
-#    ls89_sst.test_iter = 100
-#    ls89_sst.test_vals =  [-8.901415, -1.625736, 0.067797, 0.15115]
-#    ls89_sst.su2_exec  = "SU2_CFD"
-#    ls89_sst.timeout   = 1600
-#    ls89_sst.tol       = 0.00001
-#    test_list.append(ls89_sst)
+    # ls89_sst
+    ls89_sst           = TestCase('ls89_sst')
+    ls89_sst.cfg_dir   = "nicf/LS89"
+    ls89_sst.cfg_file  = "turb_SST_PR.cfg"
+    ls89_sst.test_iter = 100
+    ls89_sst.test_vals =  [-8.548266, -1.449437, 0.067986, 0.151168]
+    ls89_sst.su2_exec  = "SU2_CFD"
+    ls89_sst.timeout   = 1600
+    ls89_sst.tol       = 0.00001
+    test_list.append(ls89_sst)
 
     # Rarefaction shock wave edge_VW
     edge_VW           = TestCase('edge_VW')
