@@ -422,16 +422,16 @@ def main():
     ls89_sa.tol       = 0.00001
     test_list.append(ls89_sa)
 
-    # ls89_sst
-    ls89_sst           = TestCase('ls89_sst')
-    ls89_sst.cfg_dir   = "nicf/LS89"
-    ls89_sst.cfg_file  = "turb_SST_PR.cfg"
-    ls89_sst.test_iter = 100
-    ls89_sst.test_vals =  [-8.548266, -1.449437, 0.067986, 0.151168]
-    ls89_sst.su2_exec  = "SU2_CFD"
-    ls89_sst.timeout   = 1600
-    ls89_sst.tol       = 0.00001
-    test_list.append(ls89_sst)
+#    # ls89_sst
+#    ls89_sst           = TestCase('ls89_sst')
+#    ls89_sst.cfg_dir   = "nicf/LS89"
+#    ls89_sst.cfg_file  = "turb_SST_PR.cfg"
+#    ls89_sst.test_iter = 100
+#    ls89_sst.test_vals =  [-8.548266, -1.449437, 0.067986, 0.151168]
+#    ls89_sst.su2_exec  = "SU2_CFD"
+#    ls89_sst.timeout   = 1600
+#    ls89_sst.tol       = 0.00001
+#    test_list.append(ls89_sst)
 
     # Rarefaction shock wave edge_VW
     edge_VW           = TestCase('edge_VW')
