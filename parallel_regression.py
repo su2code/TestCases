@@ -48,7 +48,7 @@ def main():
     os.system('git pull origin develop')
 
     # Build SU2_CFD in parallel using autoconf
-    os.system('./configure --prefix=$SU2_HOME --with-MPI=mpicxx CXXFLAGS="-O3"')
+    os.system('./configure --prefix=$SU2_HOME --enable-mpi --with-cc=`which mpicc` --with-cxx=`which mpicxx` CXXFLAGS="-O3"')
     os.system('make clean')
     os.system('make install')
 
