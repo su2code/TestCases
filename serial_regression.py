@@ -3,7 +3,7 @@
 ## \file serial_regression.py
 #  \brief Python script for automated regression testing of SU2 examples
 #  \author A. Aranake, A. Campos, T. Economon, T. Lukaczyk
-#  \version 3.2.8 "eagle"
+#  \version 3.2.9 "eagle"
 #
 # Copyright (C) 2012-2015 SU2 Core Developers.
 #

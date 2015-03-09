@@ -1,11 +1,11 @@
 -----------------------------------------------------------
-  SU2 (v3.2.8 "eagle"): The Open-Source CFD Code
+  SU2 (ver. 3.2.9 "eagle"): The Open-Source CFD Code
 -----------------------------------------------------------
 
 Computational analysis tools have revolutionized the way we design aerospace systems, but most established codes are proprietary, unavailable, or prohibitively expensive for many users. The SU2 team is changing this, making computational analysis and design freely available as open-source software and involving everyone in its creation and development.
 
 -----------------------------------------------------------
-  SU2 Test Cases
+  SU2 TEST CASES
 -----------------------------------------------------------
 
 SU2 provides an extensive collection of common test cases. The test cases contain meshes and configuration files that can be run to ensure different components of the suite are working properly. The directory structure is organized by governing equations and their specific cases.

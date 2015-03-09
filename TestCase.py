@@ -3,7 +3,7 @@
 ## \file TestCase.py
 #  \brief Python class for automated regression testing of SU2 examples
 #  \author A. Aranake, A. Campos, T. Economon, T. Lukaczyk
-#  \version 3.2.8 "eagle"
+#  \version 3.2.9 "eagle"
 #
 # Copyright (C) 2012-2014 SU2 Core Developers.
 #
