@@ -5,7 +5,16 @@
 #  \author A. Aranake, A. Campos, T. Economon, T. Lukaczyk
 #  \version 3.2.9 "eagle"
 #
-# Copyright (C) 2012-2015 SU2 Core Developers.
+# SU2 Lead Developers: Dr. Francisco Palacios (fpalacios@stanford.edu).
+#                      Dr. Thomas D. Economon (economon@stanford.edu).
+#
+# SU2 Developers: Prof. Juan J. Alonso's group at Stanford University.
+#                 Prof. Piero Colonna's group at Delft University of Technology.
+#                 Prof. Nicolas R. Gauger's group at Kaiserslautern University of Technology.
+#                 Prof. Alberto Guardone's group at Polytechnic University of Milan.
+#                 Prof. Rafael Palacios' group at Imperial College London.
+#
+# Copyright (C) 2012-2015 SU2, the open-source CFD code.
 #
 # SU2 is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public
@@ -84,7 +93,7 @@ def main():
     naca0012.cfg_dir   = "euler/naca0012"
     naca0012.cfg_file  = "inv_NACA0012_Roe.cfg"
     naca0012.test_iter = 100
-    naca0012.test_vals = [-6.196817, -5.576295, 0.334795, 0.022183] #last 4 columns
+    naca0012.test_vals = [-6.237188, -5.641250, 0.334843, 0.022206] #last 4 columns
     naca0012.su2_exec  = "parallel_computation.py -f"
     naca0012.timeout   = 1600
     naca0012.tol       = 0.00001
@@ -106,7 +115,7 @@ def main():
     oneram6.cfg_dir   = "euler/oneram6"
     oneram6.cfg_file  = "inv_ONERAM6_JST.cfg"
     oneram6.test_iter = 10
-    oneram6.test_vals = [-4.712275, -4.143926, 0.270257, 0.019095] #last 4 columns
+    oneram6.test_vals = [-4.701280, -4.154921, 0.270257, 0.019095] #last 4 columns
     oneram6.su2_exec  = "parallel_computation.py -f"
     oneram6.timeout   = 3200
     oneram6.tol       = 0.00001
@@ -192,7 +201,7 @@ def main():
     turb_naca0012_sa.cfg_dir   = "rans/naca0012"
     turb_naca0012_sa.cfg_file  = "turb_NACA0012_sa.cfg"
     turb_naca0012_sa.test_iter = 20
-    turb_naca0012_sa.test_vals = [-11.780196, -9.778338, 1.098506, 0.012417] #last 4 columns
+    turb_naca0012_sa.test_vals = [-6.607223, -9.778334, 1.098508, 0.012417] #last 4 columns
     turb_naca0012_sa.su2_exec  = "parallel_computation.py -f"
     turb_naca0012_sa.timeout   = 3200
     turb_naca0012_sa.tol       = 0.00001
@@ -244,7 +253,7 @@ def main():
     contadj_oneram6.cfg_dir   = "cont_adj_euler/oneram6"
     contadj_oneram6.cfg_file  = "inv_ONERAM6.cfg"
     contadj_oneram6.test_iter = 5
-    contadj_oneram6.test_vals = [-6.192715, -6.285767, -0.105160, 0.147690] #last 4 columns
+    contadj_oneram6.test_vals = [-6.001400, -6.242615, -0.105160, 0.149240] #last 4 columns
     contadj_oneram6.su2_exec  = "parallel_computation.py -f"
     contadj_oneram6.timeout   = 1600
     contadj_oneram6.tol       = 0.00001
@@ -408,7 +417,7 @@ def main():
     edge_VW.cfg_dir   = "nicf/edge"
     edge_VW.cfg_file  = "edge_VW.cfg"
     edge_VW.test_iter = 100
-    edge_VW.test_vals = [-5.726478, -3.270255, -0.000046, 0.000000] #last 4 columns
+    edge_VW.test_vals = [-1.446069, 4.751345, -0.000046, 0.000000] #last 4 columns
     edge_VW.su2_exec  = "parallel_computation.py -f"
     edge_VW.timeout   = 1600
     edge_VW.tol       = 0.00001
@@ -419,7 +428,7 @@ def main():
     edge_PPR.cfg_dir   = "nicf/edge"
     edge_PPR.cfg_file  = "edge_PPR.cfg"
     edge_PPR.test_iter = 100
-    edge_PPR.test_vals = [-6.275234, -3.845697, -0.000056, 0.000000] #last 4 columns
+    edge_PPR.test_vals = [-1.994951, 4.175777, -0.000056, 0.000000] #last 4 columns
     edge_PPR.su2_exec  = "parallel_computation.py -f"
     edge_PPR.timeout   = 1600
     edge_PPR.tol       = 0.00001
