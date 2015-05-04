@@ -239,7 +239,7 @@ def main():
     contadj_naca0012.cfg_dir   = "cont_adj_euler/naca0012"
     contadj_naca0012.cfg_file  = "inv_NACA0012.cfg"
     contadj_naca0012.test_iter = 5
-    contadj_naca0012.test_vals = [-9.787555, -15.192503, 0.300920, 0.536870] #last 4 columns
+    contadj_naca0012.test_vals = [-9.787571, -15.192511, 0.300920, 0.536870] #last 4 columns
     contadj_naca0012.su2_exec  = "SU2_CFD"
     contadj_naca0012.timeout   = 1600
     contadj_naca0012.tol       = 0.00001
@@ -425,7 +425,7 @@ def main():
     ls89_sa.cfg_dir   = "nicf/LS89"
     ls89_sa.cfg_file  = "turb_SA_PR.cfg"
     ls89_sa.test_iter = 100
-    ls89_sa.test_vals = [-6.383111, -13.350395, 0.069071, 0.160893] #last 4 columns
+    ls89_sa.test_vals = [-6.379086, -13.346370, 0.069071, 0.160893] #last 4 columns
     ls89_sa.su2_exec  = "SU2_CFD"
     ls89_sa.timeout   = 1600
     ls89_sa.tol       = 0.00001
