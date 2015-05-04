@@ -66,10 +66,6 @@ def main():
         print 'Could not build SU2_CFD'
         sys.exit(1)
 
-    if not os.path.exists("./SU2_PRT"):
-        print 'Could not build SU2_PRT'
-        sys.exit(1)
-
     os.chdir(workdir)  
     test_list = []
 
@@ -179,7 +175,7 @@ def main():
     turb_flatplate.cfg_dir   = "rans/flatplate"
     turb_flatplate.cfg_file  = "turb_SA_flatplate.cfg"
     turb_flatplate.test_iter = 100
-    turb_flatplate.test_vals = [-5.061518, -7.362119, -0.187139, 0.011230] #last 4 columns
+    turb_flatplate.test_vals = [-5.073540, -7.354716, -0.187154, 0.011105] #last 4 columns
     turb_flatplate.su2_exec  = "parallel_computation.py -f"
     turb_flatplate.timeout   = 1600
     turb_flatplate.tol       = 0.00001
@@ -242,7 +238,7 @@ def main():
     contadj_naca0012.cfg_dir   = "cont_adj_euler/naca0012"
     contadj_naca0012.cfg_file  = "inv_NACA0012.cfg"
     contadj_naca0012.test_iter = 5
-    contadj_naca0012.test_vals = [-9.783724, -15.192804, 0.300920, 0.536870] #last 4 columns
+    contadj_naca0012.test_vals = [-9.783712, -15.192812, 0.300920, 0.536870] #last 4 columns
     contadj_naca0012.su2_exec  = "parallel_computation.py -f"
     contadj_naca0012.timeout   = 1600
     contadj_naca0012.tol       = 0.00001

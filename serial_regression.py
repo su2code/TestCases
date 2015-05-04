@@ -425,7 +425,7 @@ def main():
     ls89_sa.cfg_dir   = "nicf/LS89"
     ls89_sa.cfg_file  = "turb_SA_PR.cfg"
     ls89_sa.test_iter = 100
-    ls89_sa.test_vals = [-6.379086, -13.346370, 0.069071, 0.160893] #last 4 columns
+    ls89_sa.test_vals = [-6.383111, -13.350395, 0.069071, 0.160893] #last 4 columns
     ls89_sa.su2_exec  = "SU2_CFD"
     ls89_sa.timeout   = 1600
     ls89_sa.tol       = 0.00001
