@@ -2,7 +2,7 @@
 
 ## \file parallel_regression.py
 #  \brief Python script for automated regression testing of SU2 examples
-#  \author A. Aranake, A. Campos, T. Economon, T. Lukaczyk
+#  \author A. Aranake, A. Campos, T. Economon, T. Lukaczyk, S. Padron
 #  \version 3.2.9 "eagle"
 #
 # SU2 Lead Developers: Dr. Francisco Palacios (Francisco.D.Palacios@boeing.com).
@@ -29,44 +29,14 @@
 # You should have received a copy of the GNU Lesser General Public
 # License along with SU2. If not, see <http://www.gnu.org/licenses/>.
 
-import sys,time, os, subprocess, datetime, signal, os.path
+import sys
 from TestCase import TestCase    
 
 def main():
     '''This program runs SU2 and ensures that the output matches specified values. 
-       This will be used to do nightly checks to make sure nothing is broken. '''
+       This will be used to do checks when code is pushed to github 
+       to make sure nothing is broken. '''
 
-    workdir = os.getcwd()
-
-    # environment variables for SU2
-    os.environ['TEST_HOME'] = '/home/ale11/.cruise/projects/parallel_regression/work'
-    os.environ['SU2_HOME'] = '/home/ale11/.cruise/projects/parallel_regression/work/SU2'
-    os.environ['SU2_RUN'] = '/home/ale11/.cruise/projects/parallel_regression/work/SU2/bin'
-    os.environ['PATH'] = os.environ['PATH'] + ':' + os.environ['SU2_RUN']
-
-    # sync Test Cases repo
-    os.chdir( os.environ['TEST_HOME'] )
-    os.system('git fetch')
-    os.system('git checkout develop')
-    os.system('git pull origin develop')
-
-    # sync SU2 repo
-    os.chdir( os.environ['SU2_HOME'] )
-    os.system('git fetch')
-    os.system('git checkout develop')
-    os.system('git pull origin develop')
-
-    # Build SU2_CFD in parallel using autoconf
-    os.system('./configure --prefix=$SU2_HOME --enable-mpi --with-cc=`which mpicc` --with-cxx=`which mpicxx` CXXFLAGS="-O3"')
-    os.system('make clean')
-    os.system('make install')
-
-    os.chdir(os.environ['SU2_RUN'])
-    if not os.path.exists("./SU2_CFD"):
-        print 'Could not build SU2_CFD'
-        sys.exit(1)
-
-    os.chdir(workdir)  
     test_list = []
 
     ##########################
@@ -175,7 +145,7 @@ def main():
     turb_flatplate.cfg_dir   = "rans/flatplate"
     turb_flatplate.cfg_file  = "turb_SA_flatplate.cfg"
     turb_flatplate.test_iter = 100
-    turb_flatplate.test_vals = [-5.061518, -7.362119, -0.187139, 0.011230] #last 4 columns
+    turb_flatplate.test_vals = [-5.073540, -7.354716, -0.187154, 0.011105] #last 4 columns
     turb_flatplate.su2_exec  = "parallel_computation.py -f"
     turb_flatplate.timeout   = 1600
     turb_flatplate.tol       = 0.00001
@@ -186,7 +156,7 @@ def main():
     turb_oneram6.cfg_dir   = "rans/oneram6"
     turb_oneram6.cfg_file  = "turb_ONERAM6.cfg"
     turb_oneram6.test_iter = 10
-    turb_oneram6.test_vals = [-2.327508, -6.563372, 0.230438, 0.155815] #last 4 columns
+    turb_oneram6.test_vals = [-2.327509, -6.563372, 0.230438, 0.155815] #last 4 columns
     turb_oneram6.su2_exec  = "parallel_computation.py -f"
     turb_oneram6.timeout   = 3200
     turb_oneram6.tol       = 0.00001
@@ -208,7 +178,7 @@ def main():
     turb_naca0012_sst.cfg_dir   = "rans/naca0012"
     turb_naca0012_sst.cfg_file  = "turb_NACA0012_sst.cfg"
     turb_naca0012_sst.test_iter = 20
-    turb_naca0012_sst.test_vals = [-8.290777, -1.743118, 1.084186, 0.012583] #last 4 columns
+    turb_naca0012_sst.test_vals = [-8.290782, -1.743121, 1.084189, 0.012583] #last 4 columns
     turb_naca0012_sst.su2_exec  = "parallel_computation.py -f"
     turb_naca0012_sst.timeout   = 3200
     turb_naca0012_sst.tol       = 0.00001
@@ -238,7 +208,7 @@ def main():
     contadj_naca0012.cfg_dir   = "cont_adj_euler/naca0012"
     contadj_naca0012.cfg_file  = "inv_NACA0012.cfg"
     contadj_naca0012.test_iter = 5
-    contadj_naca0012.test_vals = [-9.783724, -15.192804, 0.300920, 0.536870] #last 4 columns
+    contadj_naca0012.test_vals = [-9.783712, -15.192812, 0.300920, 0.536870] #last 4 columns
     contadj_naca0012.su2_exec  = "parallel_computation.py -f"
     contadj_naca0012.timeout   = 1600
     contadj_naca0012.tol       = 0.00001
@@ -253,7 +223,8 @@ def main():
     contadj_oneram6.su2_exec  = "parallel_computation.py -f"
     contadj_oneram6.timeout   = 1600
     contadj_oneram6.tol       = 0.00001
-    test_list.append(contadj_oneram6)
+    #test_list.append(contadj_oneram6)
+    test_list.insert(0,contadj_oneram6) # This case requires a lot of memory. It is better for it to run first on TravisCI.
 
     ###################################
     ### Cont. adj. compressible N-S ###
@@ -327,7 +298,7 @@ def main():
     contadj_incomp_NACA0012.cfg_dir   = "cont_adj_incomp_euler/naca0012"
     contadj_incomp_NACA0012.cfg_file  = "incomp_NACA0012.cfg"
     contadj_incomp_NACA0012.test_iter = 5
-    contadj_incomp_NACA0012.test_vals = [-11.968536, -12.133234, 1.939900, 0.000000] #last 4 columns
+    contadj_incomp_NACA0012.test_vals = [-11.968536, -12.133235, 1.939900, 0.000000] #last 4 columns
     contadj_incomp_NACA0012.su2_exec  = "parallel_computation.py -f"
     contadj_incomp_NACA0012.timeout   = 1600
     contadj_incomp_NACA0012.tol       = 0.00001
@@ -435,6 +406,15 @@ def main():
     ######################################
 
     pass_list = [ test.run_test() for test in test_list ]
+
+    # Tests summary
+    print '=================================================================='
+    print 'Summary of the parallel tests'
+    for i, test in enumerate(test_list):
+        if (pass_list[i]):
+            print '  passed - %s'%test.tag
+        else:
+            print '* FAILED - %s'%test.tag
 
     if all(pass_list):
         sys.exit(0)
