@@ -81,7 +81,7 @@ def main():
     oneram6.cfg_dir   = "euler/oneram6"
     oneram6.cfg_file  = "inv_ONERAM6_JST.cfg"
     oneram6.test_iter = 10
-    oneram6.test_vals = [-4.701280, -4.154921, 0.270257, 0.019095] #last 4 columns
+    oneram6.test_vals = [-2.154358, 3.309590, 0.270257, 0.019095] #last 4 columns
     oneram6.su2_exec  = "parallel_computation.py -f"
     oneram6.timeout   = 3200
     oneram6.tol       = 0.00001
