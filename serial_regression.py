@@ -2,8 +2,8 @@
 
 ## \file serial_regression.py
 #  \brief Python script for automated regression testing of SU2 examples
-#  \author A. Aranake, A. Campos, T. Economon, T. Lukaczyk
-#  \version 3.2.9 "eagle"
+#  \author A. Aranake, A. Campos, T. Economon, T. Lukaczyk, S. Padron
+#  \version 4.0.0 "Cardinal"
 #
 # SU2 Lead Developers: Dr. Francisco Palacios (Francisco.D.Palacios@boeing.com).
 #                      Dr. Thomas D. Economon (economon@stanford.edu).
@@ -29,45 +29,13 @@
 # You should have received a copy of the GNU Lesser General Public
 # License along with SU2. If not, see <http://www.gnu.org/licenses/>.
 
-import sys,time, os, subprocess, datetime, signal, os.path
+import sys
 from TestCase import TestCase
 
 def main():
     '''This program runs SU2 and ensures that the output matches specified values. 
-       This will be used to do nightly checks to make sure nothing is broken. '''
-
-    workdir = os.getcwd()
-
-    # environment variables for SU2
-    os.environ['TEST_HOME'] = '/home/ale11/.cruise/projects/serial_regression/work'
-    os.environ['SU2_HOME'] = '/home/ale11/.cruise/projects/serial_regression/work/SU2'
-    os.environ['SU2_RUN'] = '/home/ale11/.cruise/projects/serial_regression/work/SU2/bin'
-    os.environ['PATH'] = os.environ['PATH'] + ':' + os.environ['SU2_RUN']
-
-    # sync Test Cases repo
-    os.chdir( os.environ['TEST_HOME'] )
-    os.system('git fetch')
-    os.system('git checkout develop')
-    os.system('git pull origin develop')
-    
-    # sync SU2 repo
-    os.chdir( os.environ['SU2_HOME'] )
-    os.system('git fetch')
-    os.system('git checkout develop')
-    os.system('git pull origin develop')
-
-    # Build SU2_CFD in serial using autoconf
-    os.system('./configure --prefix=$SU2_HOME CXXFLAGS="-O3"')
-    os.system('make clean')
-    os.system('make install')
-
-    os.chdir(os.environ['SU2_RUN'])
-    if not os.path.exists("./SU2_CFD"):
-        print 'Could not build SU2_CFD'
-        sys.exit(1)
-
-    os.chdir(workdir)  
-
+       This will be used to do checks when code is pushed to github 
+       to make sure nothing is broken. '''
 
     test_list = []
 
@@ -113,7 +81,7 @@ def main():
     oneram6.cfg_dir   = "euler/oneram6"
     oneram6.cfg_file  = "inv_ONERAM6_JST.cfg"
     oneram6.test_iter = 10
-    oneram6.test_vals = [-4.704347, -4.159916, 0.271678, 0.018869] #last 4 columns
+    oneram6.test_vals = [-2.157425, 3.304595, 0.271678, 0.018869] #last 4 columns
     oneram6.su2_exec  = "SU2_CFD"
     oneram6.timeout   = 9600
     oneram6.tol       = 0.00001
@@ -239,7 +207,7 @@ def main():
     contadj_naca0012.cfg_dir   = "cont_adj_euler/naca0012"
     contadj_naca0012.cfg_file  = "inv_NACA0012.cfg"
     contadj_naca0012.test_iter = 5
-    contadj_naca0012.test_vals = [-9.787555, -15.192503, 0.300920, 0.536870] #last 4 columns
+    contadj_naca0012.test_vals = [-9.787554, -15.192510, 0.300920, 0.536870] #last 4 columns
     contadj_naca0012.su2_exec  = "SU2_CFD"
     contadj_naca0012.timeout   = 1600
     contadj_naca0012.tol       = 0.00001
@@ -254,7 +222,8 @@ def main():
     contadj_oneram6.su2_exec  = "SU2_CFD"
     contadj_oneram6.timeout   = 1600
     contadj_oneram6.tol       = 0.00001
-    test_list.append(contadj_oneram6)
+    #test_list.append(contadj_oneram6)
+    test_list.insert(0,contadj_oneram6) # This case requires a lot of memory. It is better for it to run first on TravisCI.
 
     ###################################
     ### Cont. adj. compressible N-S ###
@@ -469,7 +438,16 @@ def main():
     ######################################  
 
     pass_list = [ test.run_test() for test in test_list ]
-
+    
+    # Tests summary
+    print '=================================================================='
+    print 'Summary of the serial tests'
+    for i, test in enumerate(test_list):
+        if (pass_list[i]):
+            print '  passed - %s'%test.tag
+        else:
+            print '* FAILED - %s'%test.tag
+    
     if all(pass_list):
         sys.exit(0)
     else:
