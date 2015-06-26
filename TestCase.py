@@ -41,6 +41,9 @@ class TestCase:
         self.cfg_dir  = "."
         self.cfg_file = "default.cfg"
 
+        # Indicate if the test is unsteady
+        self.unsteady = False
+
         # The test condition. These must be set after initialization
         self.test_iter = 1
         self.test_vals = []  
@@ -102,6 +105,8 @@ class TestCase:
                     raw_data = line.split()
                     try:
                         iter_number = int(raw_data[0])
+                        if self.unsteady:
+                            iter_number = int(raw_data[1])
                         data        = raw_data[len(raw_data)-4:]    # Take the last 4 columns for comparison
                     except ValueError:
                         continue
