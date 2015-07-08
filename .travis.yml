@@ -28,8 +28,8 @@ env:
 
 install:
     - echo $TRAVIS_BUILD_DIR
-    - echo pwd
-    - echo ls
+    - pwd
+    - ls
 
 
 
