@@ -15,16 +15,6 @@ branches:
     only:
         - feature_TravisCI
 
-env:
-    global:
-        CXXFLAGS=-O3
-    matrix:
-        # Serial build and test
-        - CONFIGURE_COMMAND="./configure --prefix=$BUILD_DIR"
-          TEST_SCRIPT=serial_regression.py
-        # Parallel build and test
-        #- CONFIGURE_COMMAND="./configure --enable-mpi --with-cc=mpicc --with-cxx=mpicxx --prefix=$BUILD_DIR"
-        #  TEST_SCRIPT=parallel_regression.py
 
 before_install:
     # install the necessary packages
@@ -57,3 +47,13 @@ script:
     # run the tests
     python $TEST_SCRIPT
 
+env:
+    global:
+        CXXFLAGS=-O3
+    matrix:
+        # Serial build and test
+        - CONFIGURE_COMMAND="./configure --prefix=$BUILD_DIR"
+          TEST_SCRIPT=serial_regression.py
+        # Parallel build and test
+        #- CONFIGURE_COMMAND="./configure --enable-mpi --with-cc=mpicc --with-cxx=mpicxx --prefix=$BUILD_DIR"
+        #  TEST_SCRIPT=parallel_regression.py
