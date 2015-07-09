@@ -36,7 +36,7 @@ install:
     - git clone https://github.com/su2code/SU2.git
     - cd SU2
     - git checkout develop
-    - export BUILD_DIR="`pwd`"
+    - export BUILD_DIR=$TRAVIS_BUILD_DIR/SU2
     - echo $BUILD_DIR
     - echo $CONFIGURE_COMMAND
     - $CONFIGURE_COMMAND
