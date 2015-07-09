@@ -20,10 +20,10 @@ env:
         CXXFLAGS=-O3
     matrix:
         # Serial build and test
-        - CONFIGURE_COMMAND="./configure --prefix=$TRAVIS_BUILD_DIR"
+        - CONFIGURE_COMMAND="./configure --prefix=$BUILD_DIR"
           TEST_SCRIPT=serial_regression.py
         # Parallel build and test
-        #- CONFIGURE_COMMAND="./configure --enable-mpi --with-cc=mpicc --with-cxx=mpicxx --prefix=$TRAVIS_BUILD_DIR"
+        #- CONFIGURE_COMMAND="./configure --enable-mpi --with-cc=mpicc --with-cxx=mpicxx --prefix=$BUILD_DIR"
         #  TEST_SCRIPT=parallel_regression.py
 
 before_install:
@@ -34,13 +34,27 @@ before_install:
 install:
     # Get the code and compile it
     - git clone https://github.com/su2code/SU2.git
-    - echo $TRAVIS_BUILD_DIR
-    - pwd
-    - ls
+    - cd SU2
+    - git checkout develop
+    - export BUILD_DIR="`pwd`"
+    - echo $BUILD_DIR
+    - echo $CONFIGURE_COMMAND
+    - $CONFIGURE_COMMAND
+    - make -j 8
+    - make install
+    
+    # Add environmental variables according to the configure step
+    - export SU2_RUN=$BUILD_DIR/bin
+    - export SU2_HOME=$BUILD_DIR
+    - export PATH=$PATH:$SU2_RUN
+    - export PYTHONPATH=$PYTHONPATH:$SU2_RUN
 
+before_script:
+    # Go back to the test cases
+    - cd ../TestCases/
 
-
-
-
+script:
+    # run the tests
+    python $TEST_SCRIPT
 
 
