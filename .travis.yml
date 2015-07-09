@@ -24,8 +24,8 @@ env:
         - CONFIGURE_COMMAND="./configure --prefix=$BUILD_DIR"
           TEST_SCRIPT=serial_regression.py
         # Parallel build and test
-        #- CONFIGURE_COMMAND="./configure --enable-mpi --with-cc=mpicc --with-cxx=mpicxx --prefix=$BUILD_DIR"
-        #  TEST_SCRIPT=parallel_regression.py
+        - CONFIGURE_COMMAND="./configure --enable-mpi --with-cc=mpicc --with-cxx=mpicxx --prefix=$BUILD_DIR"
+          TEST_SCRIPT=parallel_regression.py
 
 before_install:
     # install the necessary packages
@@ -51,7 +51,7 @@ install:
 
 before_script:
     # Go back to the test cases
-    - cd ../TestCases/
+    - cd ..
 
 script:
     # run the tests
