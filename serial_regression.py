@@ -43,28 +43,28 @@ def main():
     ### Compressible Euler ###
     ##########################
 
-    # Channel
-    channel           = TestCase('channel')
-    channel.cfg_dir   = "euler/channel"
-    channel.cfg_file  = "inv_channel_RK.cfg"
-    channel.test_iter = 100
-    channel.test_vals = [-3.110240, 2.263506, 0.008686, 0.029098] #last 4 columns
-    channel.su2_exec  = "SU2_CFD"
-    channel.timeout   = 1600
-    channel.tol       = 0.00001
-    test_list.append(channel)
-
-    # NACA0012 
-    naca0012           = TestCase('naca0012')
-    naca0012.cfg_dir   = "euler/naca0012"
-    naca0012.cfg_file  = "inv_NACA0012_Roe.cfg"
-    naca0012.test_iter = 100
-    naca0012.test_vals = [-6.191618, -5.592802, 0.334809, 0.022197] #last 4 columns
-    naca0012.su2_exec  = "SU2_CFD"
-    naca0012.timeout   = 1600
-    naca0012.tol       = 0.00001
-    test_list.append(naca0012)
-
+#    # Channel
+#    channel           = TestCase('channel')
+#    channel.cfg_dir   = "euler/channel"
+#    channel.cfg_file  = "inv_channel_RK.cfg"
+#    channel.test_iter = 100
+#    channel.test_vals = [-3.110240, 2.263506, 0.008686, 0.029098] #last 4 columns
+#    channel.su2_exec  = "SU2_CFD"
+#    channel.timeout   = 1600
+#    channel.tol       = 0.00001
+#    test_list.append(channel)
+#
+#    # NACA0012 
+#    naca0012           = TestCase('naca0012')
+#    naca0012.cfg_dir   = "euler/naca0012"
+#    naca0012.cfg_file  = "inv_NACA0012_Roe.cfg"
+#    naca0012.test_iter = 100
+#    naca0012.test_vals = [-6.191618, -5.592802, 0.334809, 0.022197] #last 4 columns
+#    naca0012.su2_exec  = "SU2_CFD"
+#    naca0012.timeout   = 1600
+#    naca0012.tol       = 0.00001
+#    test_list.append(naca0012)
+#
 #    # Supersonic wedge 
 #    wedge           = TestCase('wedge')
 #    wedge.cfg_dir   = "euler/wedge"
@@ -396,7 +396,19 @@ def main():
 #    sine_gust.tol       = 0.00001
 #    sine_gust.unsteady  = True
 #    test_list.append(sine_gust)
-#
+
+    # Aeroelastic
+    aeroelastic         = TestCase('aeroelastic')
+    aeroelastic.cfg_dir   = "aeroelastic"
+    aeroelastic.cfg_file  = "aeroelastic_NACA64A010.cfg"
+    aeroelastic.test_iter = 2
+    aeroelastic.test_vals = [0.077099, 0.036442, -1.684915e-03, -1.131746e-04] #last 4 columns
+    aeroelastic.su2_exec  = "SU2_CFD"
+    aeroelastic.timeout   = 1600
+    aeroelastic.tol       = 0.000001
+    aeroelastic.unsteady  = True
+    test_list.append(aeroelastic) 
+
 #    ######################################
 #    ### Real_Gas                       ###
 #    ######################################
