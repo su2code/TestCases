@@ -18,6 +18,7 @@ branches:
 env:
     global:
         CXXFLAGS=-O3
+        BUILD_DIR=$TRAVIS_BUILD_DIR/SU2
     matrix:
         # Serial build and test
         - CONFIGURE_COMMAND="./configure --prefix=$BUILD_DIR"
@@ -34,7 +35,6 @@ before_install:
     - git clone https://github.com/su2code/SU2.git
     - cd SU2
     - git checkout develop
-    - export BUILD_DIR=$TRAVIS_BUILD_DIR/SU2
 
 install:
     - echo $BUILD_DIR
