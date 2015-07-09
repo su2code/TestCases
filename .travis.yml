@@ -15,18 +15,28 @@ branches:
     only:
         - feature_TravisCI
 
+env:
+    global:
+        CXXFLAGS=-O3
+    matrix:
+        # Serial build and test
+        - CONFIGURE_COMMAND="./configure --prefix=$BUILD_DIR"
+          TEST_SCRIPT=serial_regression.py
+        # Parallel build and test
+        #- CONFIGURE_COMMAND="./configure --enable-mpi --with-cc=mpicc --with-cxx=mpicxx --prefix=$BUILD_DIR"
+        #  TEST_SCRIPT=parallel_regression.py
 
 before_install:
     # install the necessary packages
     - sudo apt-get update -qq
     - sudo apt-get install -qq python-numpy mpich2
-
-install:
-    # Get the code and compile it
+    # Get the code
     - git clone https://github.com/su2code/SU2.git
     - cd SU2
     - git checkout develop
     - export BUILD_DIR=$TRAVIS_BUILD_DIR/SU2
+
+install:
     - echo $BUILD_DIR
     - echo $CONFIGURE_COMMAND
     - $CONFIGURE_COMMAND
@@ -47,13 +57,3 @@ script:
     # run the tests
     python $TEST_SCRIPT
 
-env:
-    global:
-        CXXFLAGS=-O3
-    matrix:
-        # Serial build and test
-        - CONFIGURE_COMMAND="./configure --prefix=$BUILD_DIR"
-          TEST_SCRIPT=serial_regression.py
-        # Parallel build and test
-        #- CONFIGURE_COMMAND="./configure --enable-mpi --with-cc=mpicc --with-cxx=mpicxx --prefix=$BUILD_DIR"
-        #  TEST_SCRIPT=parallel_regression.py
