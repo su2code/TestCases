@@ -397,6 +397,18 @@ def main():
     sine_gust.unsteady  = True
     test_list.append(sine_gust)
 
+    # Aeroelastic
+    aeroelastic         = TestCase('aeroelastic')
+    aeroelastic.cfg_dir   = "aeroelastic"
+    aeroelastic.cfg_file  = "aeroelastic_NACA64A010.cfg"
+    aeroelastic.test_iter = 2
+    aeroelastic.test_vals = [0.077099, 0.036442, -1.684915e-03, -1.131746e-04] #last 4 columns
+    aeroelastic.su2_exec  = "SU2_CFD"
+    aeroelastic.timeout   = 1600
+    aeroelastic.tol       = 0.000001
+    aeroelastic.unsteady  = True
+    test_list.append(aeroelastic) 
+
     ######################################
     ### Real_Gas                       ###
     ######################################
