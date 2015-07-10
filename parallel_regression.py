@@ -392,10 +392,10 @@ def main():
     aeroelastic.cfg_dir   = "aeroelastic"
     aeroelastic.cfg_file  = "aeroelastic_NACA64A010.cfg"
     aeroelastic.test_iter = 2
-    aeroelastic.test_vals = [0.077301, 0.036425, -1.685366e-03, -1.128603e-04] #last 4 columns
+    aeroelastic.test_vals = [0.077301, 0.036425, -1.685289e-03, -1.129111e-04] #last 4 columns
     aeroelastic.su2_exec  = "parallel_computation.py -f"
     aeroelastic.timeout   = 1600
-    aeroelastic.tol       = 0.000000001
+    aeroelastic.tol       = 0.00000001
     aeroelastic.unsteady  = True
     test_list.append(aeroelastic) 
 

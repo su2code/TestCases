@@ -40,7 +40,7 @@ install:
     - echo $BUILD_DIR
     - echo $CONFIGURE_COMMAND
     - $CONFIGURE_COMMAND
-    - make -j 4
+    - make -j 8
     - make install
     
     # Add environmental variables according to the configure step
