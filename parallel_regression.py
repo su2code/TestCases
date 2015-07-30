@@ -400,7 +400,7 @@ def main():
     test_list.append(aeroelastic) 
 
     ######################################
-    ### Real_Gas                       ###
+    ### NICFD                          ###
     ######################################	
 
     # Rarefaction shock wave edge_VW
