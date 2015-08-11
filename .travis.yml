@@ -9,10 +9,7 @@ compiler:
 notifications:
     email:
         recipients:
-            - padronas@stanford.edu
             - su2code-dev@lists.stanford.edu
-        on_success: change
-        on_failure: always
   
 branches:
     only:
@@ -34,6 +31,10 @@ before_install:
     # install the necessary packages
     - sudo apt-get update -qq
     - sudo apt-get install -qq python-numpy mpich2
+    # Move all of the test data for easier copying into the SU2 repo
+    - mkdir TestData
+    - shopt -s extglob
+    - mv -- !(TestData) TestData
     # Get the code
     - git clone https://github.com/su2code/SU2.git
     - cd SU2
@@ -53,8 +54,10 @@ install:
     - export PYTHONPATH=$PYTHONPATH:$SU2_RUN
 
 before_script:
-    # Go back to the test cases
-    - cd ..
+    # Copy the test case data from above into the folder structure
+    - cp -R ../TestData/* ./TestCases/
+    # Enter the SU2/TestCases/ directory, which is now ready to run
+    - cd TestCases/
 
 script:
     # run the tests
