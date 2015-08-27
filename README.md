@@ -4,6 +4,8 @@
 
 Computational analysis tools have revolutionized the way we design aerospace systems, but most established codes are proprietary, unavailable, or prohibitively expensive for many users. The SU2 team is changing this, making computational analysis and design freely available as open-source software and involving everyone in its creation and development.
 
+[![Build Status](https://travis-ci.org/su2code/TestCases.svg?branch=develop)](https://travis-ci.org/su2code/TestCases)
+
 -----------------------------------------------------------
   SU2 TEST CASES
 -----------------------------------------------------------
