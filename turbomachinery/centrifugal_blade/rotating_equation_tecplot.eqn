@@ -1,0 +1,18 @@
+#!MC 1200
+# Created by Tecplot 360 build 12.0.0.4231
+$!ALTERDATA  [1]
+  EQUATION = '{Vx} = V4/V3'
+$!ALTERDATA  [1]
+  EQUATION = '{Vy} = V5/V3'
+$!ALTERDATA  [1]
+  EQUATION = '{V} = sqrt({Vx}*{Vx} + {Vy}*{Vy})'
+$!ALTERDATA  [1]
+  EQUATION = '{c} = {V}/V14'
+$!ALTERDATA  [1]
+  EQUATION = '{Wx} = {Vx} - V9'
+$!ALTERDATA  [1]
+  EQUATION = '{Wy} = {Vy} - V10'
+$!ALTERDATA  [1]
+  EQUATION = '{W} = sqrt({Wx}*{Wx} + {Wy}*{Wy})'
+$!ALTERDATA  [1]
+  EQUATION = '{Mr} = {W}/{c}'
