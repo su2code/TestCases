@@ -30,7 +30,7 @@ env:
 before_install:
     # install the necessary packages
     - sudo apt-get update -qq
-    - sudo apt-get install -qq python-numpy mpich2
+    - sudo apt-get install -qq python-numpy python-scipy mpich2
     # Move all of the test data for easier copying into the SU2 repo
     - mkdir TestData
     - shopt -s extglob
