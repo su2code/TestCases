@@ -1,0 +1,100 @@
+
+-------------------------------------------------------------------------
+|    ___ _   _ ___                                                      |
+|   / __| | | |_  )   Release 5.0.0  "Raven"                            |
+|   \__ \ |_| |/ /                                                      |
+|   |___/\___//___|   Suite (Computational Fluid Dynamics Code)         |
+|                                                                       |
+-------------------------------------------------------------------------
+| SU2 Lead Dev.: Dr. Francisco Palacios, Francisco.D.Palacios@boeing.com|
+|                Dr. Thomas D. Economon, economon@stanford.edu          |
+-------------------------------------------------------------------------
+| SU2 Developers:                                                       |
+| - Prof. Juan J. Alonso's group at Stanford University.                |
+| - Prof. Piero Colonna's group at Delft University of Technology.      |
+| - Prof. Nicolas R. Gauger's group at Kaiserslautern U. of Technology. |
+| - Prof. Alberto Guardone's group at Polytechnic University of Milan.  |
+| - Prof. Rafael Palacios' group at Imperial College London.            |
+| - Prof. Edwin van der Weide's group at the University of Twente.      |
+| - Prof. Vincent Terrapon's group at the University of Liege.          |
+-------------------------------------------------------------------------
+| Copyright (C) 2012-2017 SU2, the open-source CFD code.                |
+|                                                                       |
+| SU2 is free software; you can redistribute it and/or                  |
+| modify it under the terms of the GNU Lesser General Public            |
+| License as published by the Free Software Foundation; either          |
+| version 2.1 of the License, or (at your option) any later version.    |
+|                                                                       |
+| SU2 is distributed in the hope that it will be useful,                |
+| but WITHOUT ANY WARRANTY; without even the implied warranty of        |
+| MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU      |
+| Lesser General Public License for more details.                       |
+|                                                                       |
+| You should have received a copy of the GNU Lesser General Public      |
+| License along with SU2. If not, see <http://www.gnu.org/licenses/>.   |
+-------------------------------------------------------------------------
+
+
+Problem definition:
+
+Viscous flow: Computing pressure using the ideal gas law
+based on the free-stream temperature and a density computed
+from the Reynolds number.
+Force coefficients computed using free-stream values.
+-- Input conditions:
+Fluid Model: Van der Waals 
+Specific gas constant: 461.51 N.m/kg.K.
+Specific gas constant (non-dim): 1.00132
+Specific Heat Ratio: 1.33
+Critical Pressure:   2.206e+07 Pa.
+Critical Temperature:  647.12 K.
+Critical Pressure (non-dim):   882.4
+Critical Temperature (non-dim) :  1.81341
+Viscosity Model: CONSTANT_VISCOSITY  
+Laminar Viscosity: 0.00021787 N.s/m^2.
+Laminar Viscosity (non-dim): 3.53432e-06
+Conductivity Model: CONSTANT_CONDUCTIVITY 
+Molecular Conductivity: 0.070083 W/m^2.K.
+Molecular Conductivity (non-dim): 2.46668e-06
+Free-stream static pressure: 25000 Pa.
+Free-stream total pressure: 29423.3 Pa.
+Free-stream temperature: 356.852 K.
+Free-stream total temperature: 371.572 K.
+Free-stream density: 0.152 kg/m^3.
+Free-stream velocity: (233.791, 0) m/s. Magnitude: 233.791 m/s.
+Free-stream total energy per unit mass: 526132 m^2/s^2.
+Free-stream viscosity: 0.00021787 N.s/m^2.
+-- Reference values:
+Reference specific gas constant: 460.902 N.m/kg.K.
+Reference pressure: 25000 Pa.
+Reference temperature: 356.852 K.
+Reference density: 0.152 kg/m^3.
+Reference velocity: 405.554 m/s.
+Reference energy per unit mass: 164474 m^2/s^2.
+Reference viscosity: 61.6441 N.s/m^2.
+Reference conductivity: 28411.9 W/m^2.K.
+-- Resulting non-dimensional state:
+Mach number (non-dim): 0.5
+Reynolds number (non-dim): 100000. Re length: 1 m.
+Specific gas constant (non-dim): 1.00132
+Free-stream temperature (non-dim): 1
+Free-stream pressure (non-dim): 1
+Free-stream density (non-dim): 1
+Free-stream velocity (non-dim): (0.576473, 0). Magnitude: 0.576473
+Free-stream total energy per unit mass (non-dim): 3.19888
+Free-stream viscosity (non-dim): 3.53432e-06
+
+
+Forces breakdown:
+
+NOTE: Multiply forces by the non-dimensional factor: 0.0598179, and the reference factor: 25000
+to obtain the dimensional force.
+
+Total CL:              0 | Pressure (    0%):           0 | Friction (    0%):           0 | Momentum (    0%):           0
+Total CD:              0 | Pressure (    0%):           0 | Friction (    0%):           0 | Momentum (    0%):           0
+Total CL/CD:           0 | Pressure (    0%):           0 | Friction (    0%):           0 | Momentum (    0%):           0
+Total CMz:             0 | Pressure (    0%):           0 | Friction (    0%):           0 | Momentum (    0%):           0
+Total CFx:             0 | Pressure (    0%):           0 | Friction (    0%):           0 | Momentum (    0%):           0
+Total CFy:             0 | Pressure (    0%):           0 | Friction (    0%):           0 | Momentum (    0%):           0
+
+
