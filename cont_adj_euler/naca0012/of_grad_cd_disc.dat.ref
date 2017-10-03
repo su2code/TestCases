@@ -1,4 +1,4 @@
-VARIABLES="VARIABLE"      , "GRADIENT"      , "FINDIFF_STEP" 
+VARIABLES="VARIABLE"      , "GRADIENT"      , "FINDIFF_STEP"  
           0               , -2052.52        , 0.001           
           1               , -8320.78        , 0.001           
           2               , -12227.1        , 0.001           
