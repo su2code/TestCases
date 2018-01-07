@@ -14,7 +14,7 @@ The files found within these directories serve three purposes:
 
 1. A subset of the available cases are used for regression testing internally by the development team. The configuration files and meshes are automatically downloaded and executed with the latest version of SU2 at regular intervals. Any changes in the output of the specified test cases are immediately reported to the developers. These cases are controlled by the Python scripts in the root of the test cases directory, e.g., serial_regression.py.
 
-2. A subset of the available cases contain the configuration files and meshes that are required for the written tutorials found in the SU2 documentation (see https://github.com/su2code/SU2/wiki for the tutorials).
+2. A subset of the available cases contain the configuration files and meshes that are required for the written tutorials found in the SU2 documentation (see https://github.com/su2code/SU2/wiki).
 
 3. The entire suite of test cases is provided to the community as a way to get started with SU2 and its many configuration options, including settings that the developers consider to be good starting points. Often, you will find a test case that is similar to your problem of interest, and the available configuration files can be modified to suit your needs.
 
