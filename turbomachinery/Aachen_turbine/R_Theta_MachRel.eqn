@@ -1,0 +1,27 @@
+#!MC 1410
+$!AlterData 
+  Equation = '{Radius} = sqrt({x}**2 + {y}**2)'
+$!AlterData 
+  Equation = '{Theta} = atan2({x},{y})'
+$!AlterData 
+  Equation = '{RTheta} = {Radius}*{Theta}'
+$!AlterData 
+  Equation = '{vx} = {Momentum_x}/{Density}'
+$!AlterData 
+  Equation = '{vy} = {Momentum_y}/{Density}'
+$!AlterData 
+  Equation = '{vz} = {Momentum_z}/{Density}'
+$!AlterData 
+  Equation = '{v} = ({vx}**2+{vy}**2+{vz}**2)**(1/2)'
+$!AlterData 
+  Equation = '{Sound_Speed} = {v}/{Mach}'
+$!AlterData 
+  Equation = '{wx} ={vx}-{Grid_Velocity_x}'
+$!AlterData 
+  Equation = '{wy} = {vy}-{Grid_Velocity_y}'
+$!AlterData 
+  Equation = '{wz} = {vz}-{Grid_Velocity_z}'
+$!AlterData 
+  Equation = '{w} = ({wx}**2 + {wy}**2 +{wz}**2 )**(1/2)'
+$!AlterData 
+  Equation = '{Mach_rel} = {w}/{Sound_Speed}'
